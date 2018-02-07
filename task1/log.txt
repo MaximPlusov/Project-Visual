@@ -1,0 +1,12 @@
+$ git log
+commit 5855b8c57b45dcb94f9fc91e02eb110da1a05449 (HEAD -> task1, origin/master, master)
+Author: MaximPlusov <maxplusim@mail.ru>
+Date:   Wed Feb 7 18:06:51 2018 +0300
+
+    change status.txt
+
+commit 17f3aaeb197b5940a2d6e56422784a9e9f12bc4c
+Author: MaximPlusov <maxplusim@mail.ru>
+Date:   Wed Feb 7 18:03:26 2018 +0300
+
+    add .gitignore
