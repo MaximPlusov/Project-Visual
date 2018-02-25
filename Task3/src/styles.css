@@ -1,0 +1,149 @@
+/*body{*/
+/*margin-top: 0%;*/
+/*}*/
+.post {
+    margin-left: 30%; /* Отступ слева */
+    margin-top: 10px;
+    width: 40%; /* Ширина слоя */
+    /*padding: 10px;*/
+    height: 100%;
+    /*height: 350px; !* Высота блока *!*/
+    background-color: beige;
+    border: solid 3px orange;
+    float: top;
+    /*position: absolute;*/
+    /*padding-bottom:30px;*/
+}
+.text{
+    margin-left: 5%;
+    margin-right: 10%;
+    float:left;
+    font-size: 15px;
+    padding-bottom: 20px;
+}
+
+.logo{
+    font-weight:bold;
+    /*margin-top: 1%;*/
+    float:left;
+    margin-left: 20px;
+    font-family: "Chiller","PT Sans", "Arial", serif;
+    font-size: 300%;
+    color: chocolate;
+
+}
+.name{
+    font-weight:bold;
+    margin-top: 1%;
+    float:left;
+    color: black;
+    width: 200px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.calendar{
+    margin-top: 18px;
+    margin-left: 10px;
+    float:left;
+    width:25px;
+}
+.searh-foto{
+    margin-top: 20px;
+    margin-left: 32%;
+    float:left;
+    width:20px;
+}
+.user{
+    font-weight:bold;
+    color: chocolate;
+    margin-top: 1%;
+    float:left;
+    margin-left: 5%;
+    text-align: left;
+}
+
+.username{
+    font-weight:bold;
+    color: chocolate;
+    margin-top: 15px;
+    float:right;
+    margin-right: 5%;
+    text-align: left;
+    font-size: 150%;
+}
+.like{
+    margin-right: 1%;
+    /*right: 20px;*/
+    float:right;
+    margin-top: 1%;
+    width: 5%;
+}
+.num-like{
+    margin-right: 5%;
+    /*right: 20px;*/
+    float:right;
+    margin-top: 1%;
+    width: 5%;
+}
+.img{
+    width:90%;
+    margin-left: 5%;
+}
+.add-foto{
+    margin-top: 20px;
+    margin-right: 0.5%;
+    float:right;
+    width:20px;
+}
+.search{
+    margin-top: 20px;
+    margin-left: 1%;
+    float: left;
+}
+
+.menu {
+    width:100%;
+    /*height:50px;*/
+    left: 0; top: 0;
+    background:burlywood;
+    margin:0 0 0;
+    border-radius:0 0 15px 15px;
+    position: fixed;
+    /*float:left;*/
+}
+.tag{
+    margin-left: 5%;
+    text-align: center;
+    float:left;
+    background-color: orange;
+    /*margin-bottom: 10px;*/
+    /*margin-top: 20px;*/
+    width: 50px;
+    height: 20px;
+    font-weight:bold;
+    border-radius:15px 15px 15px 15px;
+    padding: 4px 4px 4px 4px;
+}
+footer {
+    position: fixed;
+    left: 0; bottom: 0;
+    padding: 10px;
+    background: burlywood;
+    color:white;
+    width: 100%;
+    text-align: center;
+}
+
+.time{
+    color:gainsboro;
+    margin-right: 5%;
+    float:right;
+    margin-top: 1%;
+}
+
+.add-posts{
+    /*margin-top: 2%;*/
+    margin-left: 49%;
+    width: 2%;
+}
