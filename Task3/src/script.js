@@ -157,10 +157,13 @@
         if(typeof id !== 'string' ){
             return false;
         }
-        for (var i = 0; i < photoPosts.length; i++) {
-            if (photoPosts[i].id === id) return i;
-        }
-        return -1;
+        return photoPosts.findIndex(function(photoPost,i,photoPosts){
+            if (photoPost.id === id) return true;
+            return false;
+        });
+    }
+    function comporator(a,b){
+        return a.createdAt - b.createdAt;
     }
     function removePhotoPost(id){
         if(typeof id !== 'string' ){
@@ -196,7 +199,8 @@
         if(filterConfig !== undefined){
             var filterPhotoPosts = photoPosts.filter(function(photoPost){
                 if(filterConfig.author !== undefined && filterConfig.hashTags !== undefined && photoPost.hashTags !== undefined){
-                    if (photoPost.author !== filterConfig.author || photoPost.createdAt.getFullYear() !== filterConfig.createdAt.getFullYear() || photoPost.createdAt.getMonth() !== filterConfig.createdAt.getMonth() || photoPost.createdAt.getDate() !== filterConfig.createdAt.getDate()){
+                    if (photoPost.author !== filterConfig.author || photoPost.createdAt.getFullYear() !== filterConfig.createdAt.getFullYear()
+                        || photoPost.createdAt.getMonth() !== filterConfig.createdAt.getMonth() || photoPost.createdAt.getDate() !== filterConfig.createdAt.getDate()){
                         return false;
                     }
                     for(var i = 0;i<filterConfig.hashTags.length;i++){
@@ -208,7 +212,8 @@
                     }
                 }
                 if(filterConfig.author !== undefined && filterConfig.createdAt !== undefined){
-                    return photoPost.author === filterConfig.author && photoPost.createdAt.getFullYear() === filterConfig.createdAt.getFullYear() && photoPost.createdAt.getMonth() === filterConfig.createdAt.getMonth() &&photoPost.createdAt.getDate() === filterConfig.createdAt.getDate();
+                    return photoPost.author === filterConfig.author && photoPost.createdAt.getFullYear() === filterConfig.createdAt.getFullYear()
+                        && photoPost.createdAt.getMonth() === filterConfig.createdAt.getMonth() &&photoPost.createdAt.getDate() === filterConfig.createdAt.getDate();
                 }
                 if(filterConfig.author !== undefined && filterConfig.hashTags !== undefined && photoPost.hashTags !== undefined){
                     if (photoPost.author !== filterConfig.author){
@@ -223,7 +228,8 @@
                     }
                 }
                 if(filterConfig.createdAt !== undefined && filterConfig.hashTags !== undefined && photoPost.hashTags !== undefined){
-                    if (photoPost.createdAt.getFullYear() !== filterConfig.createdAt.getFullYear() || photoPost.createdAt.getMonth() !== filterConfig.createdAt.getMonth() || photoPost.createdAt.getDate() !== filterConfig.createdAt.getDate()){
+                    if (photoPost.createdAt.getFullYear() !== filterConfig.createdAt.getFullYear() ||
+                        photoPost.createdAt.getMonth() !== filterConfig.createdAt.getMonth() || photoPost.createdAt.getDate() !== filterConfig.createdAt.getDate()){
                         return false;
                     }
                     for(var i = 0;i<filterConfig.hashTags.length;i++){
@@ -238,7 +244,8 @@
                     return photoPost.author === filterConfig.author;
                 }
                 if(filterConfig.createdAt !== undefined){
-                    return photoPost.createdAt.getFullYear() === filterConfig.createdAt.getFullYear() && photoPost.createdAt.getMonth() === filterConfig.createdAt.getMonth() &&photoPost.createdAt.getDate() === filterConfig.createdAt.getDate();
+                    return photoPost.createdAt.getFullYear() === filterConfig.createdAt.getFullYear()
+                        && photoPost.createdAt.getMonth() === filterConfig.createdAt.getMonth() &&photoPost.createdAt.getDate() === filterConfig.createdAt.getDate();
                 }
                 if(filterConfig.hashTags !== undefined && photoPost.hashTags !== undefined){
                     for(var i = 0;i<filterConfig.hashTags.length;i++){
@@ -250,16 +257,13 @@
                     }
                 }
             });
-            filterPhotoPosts.sort(function(a,b){
-                return a.createdAt - b.createdAt;
-            });
+            filterPhotoPosts.sort(comporator);
             return filterPhotoPosts.slice(skip,top+skip);
         }
-        photoPosts.sort(function(a,b){
-            return a.createdAt - b.createdAt;
-        });
+        photoPosts.sort(comporator);
         return photoPosts.slice(skip,top+skip);
     }
+
     function validatePhotoPost(photoPost){
         if(typeof  photoPost !== 'object'){
             return false;
@@ -288,19 +292,15 @@
         if(photoPost.photoLink.length === 0){
             return false;
         }
-        if(photoPost.hashTags !== undefined){
-            for(var i = 0; i<photoPost.hashTags.length;i++){
-                if(typeof photoPost.hashTags[i] !== 'string'){
-                    return false;
-                }
-            }
+        if(photoPost.hashTags !== undefined && photoPost.hashTags.some(function (t) {
+            return t !== 'string';
+            })){
+            return false;
         }
-        if(photoPost.likes !== undefined){
-            for(var i = 0; i<photoPost.likes.length;i++){
-                if(typeof photoPost.likes[i] !== 'string'){
-                    return false;
-                }
-            }
+        if(photoPost.hashTags !== undefined && photoPost.likes.some(function (t) {
+                return t !== 'string';
+            })) {
+            return false;
         }
         return true;
     }
@@ -329,15 +329,8 @@
             if(typeof photoPost.photoLink === 'string'){
                 photoPosts[i].photoLink = photoPost.photoLink;
             }
-            if(photoPost.hashTags !== undefined && photoPosts[i].hashTags !== undefined){
-                while(photoPosts[i].hashTags.length !== 0){
-                    photoPosts[i].hashTags.pop();
-                }
-            }
-            if(photoPosts[i].hashTags === undefined){
-                photoPosts[i].hashTags = [];
-            }
             if(photoPost.hashTags !== undefined){
+                photoPosts[i].hashTags = [];
                 for(var j = 0;j < photoPost.hashTags.length;j++){
                     if(typeof photoPost.hashTags[j] === 'string'){
                         photoPosts[i].hashTags.push(photoPost.hashTags[j]);
@@ -357,10 +350,10 @@
         console.log("getPhotoPost(1)");
         console.log(getPhotoPost(1));
 
-        console.log("removePhotoPost('1')");
-        console.log(removePhotoPost('1'));
-        console.log("getPhotoPost('1')");
-        console.log(getPhotoPost('1'));
+        console.log("removePhotoPost('2')");
+        console.log(removePhotoPost('2'));
+        console.log("getPhotoPost('2')");
+        console.log(getPhotoPost('2'));
         console.log("removePhotoPost(1)");
         console.log(removePhotoPost(1));
 
