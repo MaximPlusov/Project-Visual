@@ -154,7 +154,7 @@
         }
     ];
     function searchPhotoPost(id) {
-        if(typeof id!='string' ){
+        if(typeof id !== 'string' ){
             return false;
         }
         for (var i = 0; i < photoPosts.length; i++) {
@@ -163,22 +163,22 @@
         return -1;
     }
     function removePhotoPost(id){
-        if(typeof id!='string' ){
+        if(typeof id !== 'string' ){
             return false;
         }
         var i = searchPhotoPost(id);
-        if(i!=-1){
+        if(i !== -1){
             photoPosts.splice(i,1);
             return true;
         }
         return false;
     }
     function getPhotoPost(id){
-        if(typeof id!='string' ){
+        if(typeof id !== 'string' ){
             return null;
         }
         var i = searchPhotoPost(id);
-        if(i!=-1){
+        if(i !== -1){
             return photoPosts[i];
         }
         return null;
@@ -186,25 +186,61 @@
     function getPhotoPosts(skip, top, filterConfig){
         skip = skip || 0;
         top = top || 10;
-        filterConfig = filterConfig || null;
-        if(typeof skip != "number" ){
-            return NaN;
+        filterConfig = filterConfig || undefined;
+        if(typeof skip !== "number" ){
+            return null;
         }
-        if(typeof top !="number"){
-            return NaN;
+        if(typeof top !== "number"){
+            return null;
         }
-        if(filterConfig != null){
+        if(filterConfig !== undefined){
             var filterPhotoPosts = photoPosts.filter(function(photoPost){
-                if(filterConfig.author != null && filterConfig.createdAt != null){
-                    return photoPost.author == filterConfig.author && photoPost.createdAt.getFullYear() == filterConfig.createdAt.getFullYear() && photoPost.createdAt.getMonth() == filterConfig.createdAt.getMonth() &&photoPost.createdAt.getDate() == filterConfig.createdAt.getDate();
+                if(filterConfig.author !== undefined && filterConfig.hashTags !== undefined && photoPost.hashTags !== undefined){
+                    if (photoPost.author !== filterConfig.author || photoPost.createdAt.getFullYear() !== filterConfig.createdAt.getFullYear() || photoPost.createdAt.getMonth() !== filterConfig.createdAt.getMonth() || photoPost.createdAt.getDate() !== filterConfig.createdAt.getDate()){
+                        return false;
+                    }
+                    for(var i = 0;i<filterConfig.hashTags.length;i++){
+                        if(photoPost.hashTags.some(function (t) {
+                                return t === filterConfig.hashTags[i]
+                            })){
+                            return true;
+                        }
+                    }
                 }
-                if(filterConfig.author != null){
-                    return photoPost.author == filterConfig.author;
+                if(filterConfig.author !== undefined && filterConfig.createdAt !== undefined){
+                    return photoPost.author === filterConfig.author && photoPost.createdAt.getFullYear() === filterConfig.createdAt.getFullYear() && photoPost.createdAt.getMonth() === filterConfig.createdAt.getMonth() &&photoPost.createdAt.getDate() === filterConfig.createdAt.getDate();
                 }
-                if(filterConfig.createdAt != null){
-                    return photoPost.createdAt.getFullYear() == filterConfig.createdAt.getFullYear() && photoPost.createdAt.getMonth() == filterConfig.createdAt.getMonth() &&photoPost.createdAt.getDate() == filterConfig.createdAt.getDate();
+                if(filterConfig.author !== undefined && filterConfig.hashTags !== undefined && photoPost.hashTags !== undefined){
+                    if (photoPost.author !== filterConfig.author){
+                        return false;
+                    }
+                    for(var i = 0;i<filterConfig.hashTags.length;i++){
+                        if(photoPost.hashTags.some(function (t) {
+                                return t === filterConfig.hashTags[i]
+                            })){
+                            return true;
+                        }
+                    }
                 }
-                if(filterConfig.hashTags != null && photoPost.hashTags != null){
+                if(filterConfig.createdAt !== undefined && filterConfig.hashTags !== undefined && photoPost.hashTags !== undefined){
+                    if (photoPost.createdAt.getFullYear() !== filterConfig.createdAt.getFullYear() || photoPost.createdAt.getMonth() !== filterConfig.createdAt.getMonth() || photoPost.createdAt.getDate() !== filterConfig.createdAt.getDate()){
+                        return false;
+                    }
+                    for(var i = 0;i<filterConfig.hashTags.length;i++){
+                        if(photoPost.hashTags.some(function (t) {
+                                return t === filterConfig.hashTags[i]
+                            })){
+                            return true;
+                        }
+                    }
+                }
+                if(filterConfig.author !== undefined){
+                    return photoPost.author === filterConfig.author;
+                }
+                if(filterConfig.createdAt !== undefined){
+                    return photoPost.createdAt.getFullYear() === filterConfig.createdAt.getFullYear() && photoPost.createdAt.getMonth() === filterConfig.createdAt.getMonth() &&photoPost.createdAt.getDate() === filterConfig.createdAt.getDate();
+                }
+                if(filterConfig.hashTags !== undefined && photoPost.hashTags !== undefined){
                     for(var i = 0;i<filterConfig.hashTags.length;i++){
                         if(photoPost.hashTags.some(function (t) {
                             return t === filterConfig.hashTags[i]
@@ -225,43 +261,43 @@
         return photoPosts.slice(skip,top+skip);
     }
     function validatePhotoPost(photoPost){
-        if(typeof  photoPost != 'object'){
+        if(typeof  photoPost !== 'object'){
             return false;
         }
-        if(typeof photoPost.id!='string'){
+        if(typeof photoPost.id !== 'string'){
             return false;
         }
-        if(typeof photoPost.descriprion!='string'){
+        if(typeof photoPost.descriprion !== 'string'){
             return false;
         }
         if(photoPost.descriprion.length >= 200){
             return false;
         }
-        if(typeof photoPost.createdAt!='object'){
+        if(typeof photoPost.createdAt !== 'object'){
             return false;
         }
-        if(typeof photoPost.author!='string'){
+        if(typeof photoPost.author !== 'string'){
             return false;
         }
-        if(photoPost.author.length == 0){
+        if(photoPost.author.length === 0){
             return false;
         }
-        if(typeof photoPost.photoLink!='string'){
+        if(typeof photoPost.photoLink !== 'string'){
             return false;
         }
-        if(photoPost.photoLink.length == 0){
+        if(photoPost.photoLink.length === 0){
             return false;
         }
-        if(photoPost.hashTags != null){
+        if(photoPost.hashTags !== undefined){
             for(var i = 0; i<photoPost.hashTags.length;i++){
-                if(typeof photoPost.hashTags[i] != 'string'){
+                if(typeof photoPost.hashTags[i] !== 'string'){
                     return false;
                 }
             }
         }
-        if(photoPost.likes != null){
+        if(photoPost.likes !== undefined){
             for(var i = 0; i<photoPost.likes.length;i++){
-                if(typeof photoPost.likes[i] != 'string'){
+                if(typeof photoPost.likes[i] !== 'string'){
                     return false;
                 }
             }
@@ -269,7 +305,7 @@
         return true;
     }
     function addPhotoPost(photoPost){
-        if(typeof  photoPost != 'object'){
+        if(typeof  photoPost !== 'object'){
             return false;
         }
         if(validatePhotoPost(photoPost)){
@@ -279,32 +315,31 @@
         return false;
     }
     function editPhotoPost(id, photoPost) {
-        if(typeof id!='string' ){
+        if(typeof id !== 'string' ){
             return false;
         }
-        if(typeof  photoPost != 'object'){
+        if(typeof  photoPost !== 'object'){
             return false;
         }
         var i = searchPhotoPost(id);
-        if(i!=-1){
-            if(typeof photoPost.description == 'string'){
+        if(i !== -1){
+            if(typeof photoPost.description === 'string'){
                 photoPosts[i].descriprion = photoPost.description;
             }
-            if(typeof photoPost.photoLink == 'string'){
+            if(typeof photoPost.photoLink === 'string'){
                 photoPosts[i].photoLink = photoPost.photoLink;
             }
-            if(photoPost.hashTags!= null && photoPosts[i].hashTags!= null){
-                while(photoPosts[i].hashTags.length != 0){
+            if(photoPost.hashTags !== undefined && photoPosts[i].hashTags !== undefined){
+                while(photoPosts[i].hashTags.length !== 0){
                     photoPosts[i].hashTags.pop();
                 }
-
             }
-            if(photoPosts[i].hashTags == null){
+            if(photoPosts[i].hashTags === undefined){
                 photoPosts[i].hashTags = [];
             }
-            if(photoPost.hashTags != null){
+            if(photoPost.hashTags !== undefined){
                 for(var j = 0;j < photoPost.hashTags.length;j++){
-                    if(typeof photoPost.hashTags[j] == 'string'){
+                    if(typeof photoPost.hashTags[j] === 'string'){
                         photoPosts[i].hashTags.push(photoPost.hashTags[j]);
                     }
                 }
@@ -386,8 +421,6 @@
         console.log(getPhotoPost('3'));
         console.log("editPhotoPost('13',{description :'Hello!',hashTags:['love','friends'],photoLink:'http/1.jpg'})");
         console.log(editPhotoPost('13',{description :'Hello!',hashTags:['love','friends'],photoLink:'http/1.jpg'}));
-        console.log("getPhotoPost('13')");
-        console.log(getPhotoPosts('13'));
     }
 
     log();
