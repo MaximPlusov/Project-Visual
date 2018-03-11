@@ -1,4 +1,4 @@
-//var functional = (function () {
+var functional = (function () {
     let photoPosts = [
         {
             id: '1',
@@ -394,21 +394,16 @@
         console.log(editPhotoPost('13',{description :'Hello!',hashTags:['love','friends'],photoLink:'http/1.jpg'}));
     }
     log();
-    // return {
-    //     searchPhotoPost,
-    //     getPhotoPosts,
-    //     getPhotoPost,
-    //     validatePhotoPost,
-    //     addPhotoPost,
-    //     editPhotoPost,
-    //     removePhotoPost
-    // };
-
-//})();
-
-
-var DOM = (function(){
-    //var NewDiv = document.createElement('form');
-
+    return {
+        searchPhotoPost,
+        getPhotoPosts,
+        getPhotoPost,
+        validatePhotoPost,
+        addPhotoPost,
+        editPhotoPost,
+        removePhotoPost
+    };
 
 })();
+
+
