@@ -1,5 +1,5 @@
-;(function () {
-    var photoPosts = [
+var functional = (function () {
+    let photoPosts = [
         {
             id: '1',
             descriprion: 'My 1 trip!',
@@ -152,17 +152,20 @@
             author: 'Maxim Plusov',
             photoLink: 'http://20.jpg'
         }
-    ];
-    function searchPhotoPost(id) {
+    ]
+    let searchPhotoPost = function(id) {
         if(typeof id !== 'string' ){
             return false;
         }
-        for (var i = 0; i < photoPosts.length; i++) {
-            if (photoPosts[i].id === id) return i;
-        }
-        return -1;
+        return photoPosts.findIndex(function(photoPost,i,photoPosts){
+            if (photoPost.id === id) return true;
+            return false;
+        });
     }
-    function removePhotoPost(id){
+    function comporator(a,b){
+        return a.createdAt - b.createdAt;
+    }
+    let removePhotoPost = function(id){
         if(typeof id !== 'string' ){
             return false;
         }
@@ -173,7 +176,7 @@
         }
         return false;
     }
-    function getPhotoPost(id){
+    let getPhotoPost = function(id){
         if(typeof id !== 'string' ){
             return null;
         }
@@ -183,7 +186,7 @@
         }
         return null;
     }
-    function getPhotoPosts(skip, top, filterConfig){
+    let getPhotoPosts = function(skip, top, filterConfig){
         skip = skip || 0;
         top = top || 10;
         filterConfig = filterConfig || undefined;
@@ -196,115 +199,89 @@
         if(filterConfig !== undefined){
             var filterPhotoPosts = photoPosts.filter(function(photoPost){
                 if(filterConfig.author !== undefined && filterConfig.hashTags !== undefined && photoPost.hashTags !== undefined){
-                    if (photoPost.author !== filterConfig.author || photoPost.createdAt.getFullYear() !== filterConfig.createdAt.getFullYear() || photoPost.createdAt.getMonth() !== filterConfig.createdAt.getMonth() || photoPost.createdAt.getDate() !== filterConfig.createdAt.getDate()){
+                    if (photoPost.author !== filterConfig.author || photoPost.createdAt.getFullYear() !== filterConfig.createdAt.getFullYear()
+                        || photoPost.createdAt.getMonth() !== filterConfig.createdAt.getMonth() || photoPost.createdAt.getDate() !== filterConfig.createdAt.getDate()){
                         return false;
                     }
-                    for(var i = 0;i<filterConfig.hashTags.length;i++){
-                        if(photoPost.hashTags.some(function (t) {
-                                return t === filterConfig.hashTags[i]
-                            })){
-                            return true;
-                        }
+                    if(photoPost.hashTags.some(function (t) {
+                            return filterConfig.hashTags.includes(t);
+                        })){
+                        return true;
                     }
                 }
                 if(filterConfig.author !== undefined && filterConfig.createdAt !== undefined){
-                    return photoPost.author === filterConfig.author && photoPost.createdAt.getFullYear() === filterConfig.createdAt.getFullYear() && photoPost.createdAt.getMonth() === filterConfig.createdAt.getMonth() &&photoPost.createdAt.getDate() === filterConfig.createdAt.getDate();
+                    return photoPost.author === filterConfig.author && photoPost.createdAt.getFullYear() === filterConfig.createdAt.getFullYear()
+                        && photoPost.createdAt.getMonth() === filterConfig.createdAt.getMonth() &&photoPost.createdAt.getDate() === filterConfig.createdAt.getDate();
                 }
                 if(filterConfig.author !== undefined && filterConfig.hashTags !== undefined && photoPost.hashTags !== undefined){
                     if (photoPost.author !== filterConfig.author){
                         return false;
                     }
-                    for(var i = 0;i<filterConfig.hashTags.length;i++){
-                        if(photoPost.hashTags.some(function (t) {
-                                return t === filterConfig.hashTags[i]
-                            })){
-                            return true;
-                        }
+                    if(photoPost.hashTags.some(function (t) {
+                            return filterConfig.hashTags.includes(t);
+                        })){
+                        return true;
                     }
                 }
                 if(filterConfig.createdAt !== undefined && filterConfig.hashTags !== undefined && photoPost.hashTags !== undefined){
-                    if (photoPost.createdAt.getFullYear() !== filterConfig.createdAt.getFullYear() || photoPost.createdAt.getMonth() !== filterConfig.createdAt.getMonth() || photoPost.createdAt.getDate() !== filterConfig.createdAt.getDate()){
+                    if (photoPost.createdAt.getFullYear() !== filterConfig.createdAt.getFullYear() ||
+                        photoPost.createdAt.getMonth() !== filterConfig.createdAt.getMonth() || photoPost.createdAt.getDate() !== filterConfig.createdAt.getDate()){
                         return false;
                     }
-                    for(var i = 0;i<filterConfig.hashTags.length;i++){
-                        if(photoPost.hashTags.some(function (t) {
-                                return t === filterConfig.hashTags[i]
-                            })){
-                            return true;
-                        }
+                    if(photoPost.hashTags.some(function (t) {
+                            return filterConfig.hashTags.includes(t);
+                        })){
+                        return true;
                     }
                 }
                 if(filterConfig.author !== undefined){
                     return photoPost.author === filterConfig.author;
                 }
                 if(filterConfig.createdAt !== undefined){
-                    return photoPost.createdAt.getFullYear() === filterConfig.createdAt.getFullYear() && photoPost.createdAt.getMonth() === filterConfig.createdAt.getMonth() &&photoPost.createdAt.getDate() === filterConfig.createdAt.getDate();
+                    return photoPost.createdAt.getFullYear() === filterConfig.createdAt.getFullYear()
+                        && photoPost.createdAt.getMonth() === filterConfig.createdAt.getMonth() &&photoPost.createdAt.getDate() === filterConfig.createdAt.getDate();
                 }
                 if(filterConfig.hashTags !== undefined && photoPost.hashTags !== undefined){
-                    for(var i = 0;i<filterConfig.hashTags.length;i++){
-                        if(photoPost.hashTags.some(function (t) {
-                            return t === filterConfig.hashTags[i]
+                    if(photoPost.hashTags.some(function (t) {
+                            return filterConfig.hashTags.includes(t);
                         })){
-                            return true;
-                        }
+                        return true;
                     }
                 }
             });
-            filterPhotoPosts.sort(function(a,b){
-                return a.createdAt - b.createdAt;
-            });
+            filterPhotoPosts.sort(comporator);
             return filterPhotoPosts.slice(skip,top+skip);
         }
-        photoPosts.sort(function(a,b){
-            return a.createdAt - b.createdAt;
-        });
+        photoPosts.sort(comporator);
         return photoPosts.slice(skip,top+skip);
     }
-    function validatePhotoPost(photoPost){
+    let validatePhotoPost = function(photoPost){
         if(typeof  photoPost !== 'object'){
             return false;
         }
-        if(typeof photoPost.id !== 'string'){
-            return false;
-        }
-        if(typeof photoPost.descriprion !== 'string'){
-            return false;
-        }
-        if(photoPost.descriprion.length >= 200){
-            return false;
-        }
-        if(typeof photoPost.createdAt !== 'object'){
-            return false;
-        }
-        if(typeof photoPost.author !== 'string'){
-            return false;
-        }
-        if(photoPost.author.length === 0){
-            return false;
-        }
-        if(typeof photoPost.photoLink !== 'string'){
-            return false;
-        }
-        if(photoPost.photoLink.length === 0){
-            return false;
-        }
-        if(photoPost.hashTags !== undefined){
-            for(var i = 0; i<photoPost.hashTags.length;i++){
-                if(typeof photoPost.hashTags[i] !== 'string'){
-                    return false;
+        var val = {
+            id: function(){return typeof photoPost.id !== 'string'},
+            descriprion: function(){ return typeof photoPost.descriprion !== 'string' || photoPost.descriprion.length >= 200},
+            createdAt: function(){ return typeof photoPost.createdAt !== 'object'},
+            author: function(){ return typeof photoPost.author !== 'string' || photoPost.author.length === 0},
+            photoLink: function(){return typeof photoPost.photoLink !== 'string' || photoPost.photoLink.length === 0},
+            hashTags:  function(){if(photoPost.hashTags !== undefined){
+                if(typeof photoPost.hashTags === 'string' ){
+                    photoPost.hashTags = photoPost.hashTags.split(" ");
                 }
-            }
+                return photoPost.hashTags.some(function (t) {return typeof t !== 'string';});
+            }},
+            likes: function(){if(photoPost.likes !== undefined ) {
+             return photoPost.likes.some(function (t)  {return typeof t !== 'string';});}}
         }
-        if(photoPost.likes !== undefined){
-            for(var i = 0; i<photoPost.likes.length;i++){
-                if(typeof photoPost.likes[i] !== 'string'){
-                    return false;
-                }
+        for (var key in val){
+            if(val[key]() === true){
+                return false;
             }
         }
         return true;
     }
-    function addPhotoPost(photoPost){
+    let addPhotoPost = function(photoPost){
         if(typeof  photoPost !== 'object'){
             return false;
         }
@@ -314,7 +291,7 @@
         }
         return false;
     }
-    function editPhotoPost(id, photoPost) {
+    let editPhotoPost= function(id, photoPost) {
         if(typeof id !== 'string' ){
             return false;
         }
@@ -329,15 +306,8 @@
             if(typeof photoPost.photoLink === 'string'){
                 photoPosts[i].photoLink = photoPost.photoLink;
             }
-            if(photoPost.hashTags !== undefined && photoPosts[i].hashTags !== undefined){
-                while(photoPosts[i].hashTags.length !== 0){
-                    photoPosts[i].hashTags.pop();
-                }
-            }
-            if(photoPosts[i].hashTags === undefined){
-                photoPosts[i].hashTags = [];
-            }
             if(photoPost.hashTags !== undefined){
+                photoPosts[i].hashTags = [];
                 for(var j = 0;j < photoPost.hashTags.length;j++){
                     if(typeof photoPost.hashTags[j] === 'string'){
                         photoPosts[i].hashTags.push(photoPost.hashTags[j]);
@@ -350,6 +320,7 @@
     }
     function log(){
 
+
         console.log("getPhotoPost('1')");
         console.log(getPhotoPost('1'));
         console.log("getPhotoPost('21')");
@@ -357,10 +328,10 @@
         console.log("getPhotoPost(1)");
         console.log(getPhotoPost(1));
 
-        console.log("removePhotoPost('1')");
-        console.log(removePhotoPost('1'));
-        console.log("getPhotoPost('1')");
-        console.log(getPhotoPost('1'));
+        console.log("removePhotoPost('2')");
+        console.log(removePhotoPost('2'));
+        console.log("getPhotoPost('2')");
+        console.log(getPhotoPost('2'));
         console.log("removePhotoPost(1)");
         console.log(removePhotoPost(1));
 
@@ -422,6 +393,17 @@
         console.log("editPhotoPost('13',{description :'Hello!',hashTags:['love','friends'],photoLink:'http/1.jpg'})");
         console.log(editPhotoPost('13',{description :'Hello!',hashTags:['love','friends'],photoLink:'http/1.jpg'}));
     }
-
     log();
+    return {
+        searchPhotoPost,
+        getPhotoPosts,
+        getPhotoPost,
+        validatePhotoPost,
+        addPhotoPost,
+        editPhotoPost,
+        removePhotoPost
+    };
+
 })();
+
+
