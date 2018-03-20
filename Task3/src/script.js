@@ -167,7 +167,7 @@ var functional = (function () {
         });
     }
 
-    function comporator(a,b){
+    function comparator(a,b){
         return b.createdAt - a.createdAt;
     }
 
@@ -198,69 +198,39 @@ var functional = (function () {
         skip = skip || 0;
         top = top || 10;
         filterConfig = filterConfig || undefined;
-        if(typeof skip !== "number" ){
+        if(typeof skip !== 'number' ){
             return null;
         }
-        if(typeof top !== "number"){
+        if(typeof top !== 'number'){
             return null;
         }
-        if(filterConfig !== undefined){
+        if(filterConfig){
             var filterPhotoPosts = photoPosts.filter(function(photoPost){
-                if(filterConfig.author !== undefined && filterConfig.hashTags !== undefined && photoPost.hashTags !== undefined){
-                    if (photoPost.author !== filterConfig.author || photoPost.createdAt.getFullYear() !== filterConfig.createdAt.getFullYear()
-                        || photoPost.createdAt.getMonth() !== filterConfig.createdAt.getMonth() || photoPost.createdAt.getDate() !== filterConfig.createdAt.getDate()){
-                        return false;
-                    }
-                    if(photoPost.hashTags.some(function (t) {
-                            return filterConfig.hashTags.includes(t);
-                        })){
-                        return true;
-                    }
-                }
-                if(filterConfig.author !== undefined && filterConfig.createdAt !== undefined){
-                    return photoPost.author === filterConfig.author && photoPost.createdAt.getFullYear() === filterConfig.createdAt.getFullYear()
-                        && photoPost.createdAt.getMonth() === filterConfig.createdAt.getMonth() &&photoPost.createdAt.getDate() === filterConfig.createdAt.getDate();
-                }
-                if(filterConfig.author !== undefined && filterConfig.hashTags !== undefined && photoPost.hashTags !== undefined){
+                if(filterConfig.author){
                     if (photoPost.author !== filterConfig.author){
                         return false;
                     }
-                    if(photoPost.hashTags.some(function (t) {
-                            return filterConfig.hashTags.includes(t);
-                        })){
-                        return true;
-                    }
                 }
-                if(filterConfig.createdAt !== undefined && filterConfig.hashTags !== undefined && photoPost.hashTags !== undefined){
-                    if (photoPost.createdAt.getFullYear() !== filterConfig.createdAt.getFullYear() ||
-                        photoPost.createdAt.getMonth() !== filterConfig.createdAt.getMonth() || photoPost.createdAt.getDate() !== filterConfig.createdAt.getDate()){
+                if(filterConfig.createdAt){
+                    if(photoPost.createdAt.getFullYear() !== filterConfig.createdAt.getFullYear()
+                        || photoPost.createdAt.getMonth() !== filterConfig.createdAt.getMonth()
+                        || photoPost.createdAt.getDate() !== filterConfig.createdAt.getDate()){
                         return false;
                     }
-                    if(photoPost.hashTags.some(function (t) {
+                }
+                if(filterConfig.hashTags && photoPost.hashTags ){
+                    if(!photoPost.hashTags.some(function (t) {
                             return filterConfig.hashTags.includes(t);
                         })){
-                        return true;
+                        return false;
                     }
                 }
-                if(filterConfig.author !== undefined){
-                    return photoPost.author === filterConfig.author;
-                }
-                if(filterConfig.createdAt !== undefined){
-                    return photoPost.createdAt.getFullYear() === filterConfig.createdAt.getFullYear()
-                        && photoPost.createdAt.getMonth() === filterConfig.createdAt.getMonth() &&photoPost.createdAt.getDate() === filterConfig.createdAt.getDate();
-                }
-                if(filterConfig.hashTags !== undefined && photoPost.hashTags !== undefined){
-                    if(photoPost.hashTags.some(function (t) {
-                            return filterConfig.hashTags.includes(t);
-                        })){
-                        return true;
-                    }
-                }
+                return true;
             });
-            filterPhotoPosts.sort(comporator);
+            filterPhotoPosts.sort(comparator);
             return filterPhotoPosts.slice(skip,top+skip);
         }
-        photoPosts.sort(comporator);
+        photoPosts.sort(comparator);
         return photoPosts.slice(skip,top+skip);
     }
 
@@ -317,7 +287,7 @@ var functional = (function () {
             if(typeof photoPost.photoLink === 'string'){
                 photoPosts[i].photoLink = photoPost.photoLink;
             }
-            if(photoPost.hashTags !== undefined){
+            if(photoPost.hashTags){
                 photoPosts[i].hashTags = [];
                 for(var j = 0;j < photoPost.hashTags.length;j++){
                     if(typeof photoPost.hashTags[j] === 'string'){
@@ -426,62 +396,62 @@ var ModuleDOM = (function () {
 
     function getPhotoPost(post) {
 
-        var photoPost = document.createElement("form");
-        photoPost.setAttribute("class", "post");
-        photoPost.setAttribute("id", post.id);
+        var photoPost = document.createElement('form');
+        photoPost.setAttribute('class', 'post');
+        photoPost.setAttribute('id', post.id);
 
-        var author = document.createElement("div");
-        author.setAttribute("class", "author");
+        var author = document.createElement('div');
+        author.setAttribute('class', 'author');
         author.textContent = post.author;
         photoPost.appendChild(author);
 
         if(userName === post.author){
-            var del = document.createElement("img");
-            del.setAttribute("class","delete");
-            del.setAttribute("alt","delete.png");
-            del.setAttribute("src","delete.png");
+            var del = document.createElement('img');
+            del.setAttribute('class','delete');
+            del.setAttribute('alt','delete.png');
+            del.setAttribute('src','delete.png');
             photoPost.appendChild(del);
 
-            var edit = document.createElement("img");
-            edit.setAttribute("class","edit");
-            edit.setAttribute("alt","edit.png");
-            edit.setAttribute("src","edit.png");
+            var edit = document.createElement('img');
+            edit.setAttribute('class','edit');
+            edit.setAttribute('alt','edit.png');
+            edit.setAttribute('src','edit.png');
             photoPost.appendChild(edit);
         }
 
-        var time = document.createElement("div");
-        time.setAttribute("class", "time");
-        time.textContent =post.createdAt.getDate() + " " + post.createdAt.getMonth() + " " + post.createdAt.toString().substring(10,21);
+        var time = document.createElement('div');
+        time.setAttribute('class', 'time');
+        time.textContent = post.createdAt.getDate() + " " + post.createdAt.getMonth() + " " + post.createdAt.toString().substring(10,21);
         photoPost.appendChild(time);
 
-        var img = document.createElement("img");
-        img.setAttribute("class","img");
-        img.setAttribute("src", post.photoLink);
-        img.setAttribute("alt", "foto.png");
+        var img = document.createElement('img');
+        img.setAttribute('class','img');
+        img.setAttribute('src', post.photoLink);
+        img.setAttribute('alt', 'foto.png');
         photoPost.appendChild(img);
 
-        var description = document.createElement("div");
-        description.setAttribute("class", "text");
+        var description = document.createElement('div');
+        description.setAttribute('class', 'text');
         description.textContent = post.description;
         photoPost.appendChild(description);
 
-        photoPost.appendChild(document.createElement("br"));
-        photoPost.appendChild(document.createElement("br"));
-        photoPost.appendChild(document.createElement("br"));
-        photoPost.appendChild(document.createElement("br"));
+        photoPost.appendChild(document.createElement('br'));
+        photoPost.appendChild(document.createElement('br'));
+        photoPost.appendChild(document.createElement('br'));
+        photoPost.appendChild(document.createElement('br'));
 
-        if(post.hashTags !== undefined){
+        if(post.hashTags){
             for(var i = 0;i<post.hashTags.length;i++){
-                var tag = document.createElement("div");
-                tag.setAttribute("class","tag");
+                var tag = document.createElement('div');
+                tag.setAttribute('class','tag');
                 tag.textContent = post.hashTags[i];
                 photoPost.appendChild(tag);
             }
         }
 
-        var numLike = document.createElement("div");
-        numLike.setAttribute("class","num-like")
-        if(post.likes !== undefined){
+        var numLike = document.createElement('div');
+        numLike.setAttribute('class','num-like')
+        if(post.likes){
             numLike.textContent = post.likes.length;
         }
         else{
@@ -489,20 +459,20 @@ var ModuleDOM = (function () {
         }
         photoPost.appendChild(numLike);
 
-        var like = document.createElement("img");
-        like.setAttribute("class","like")
-        like.setAttribute("src", "like.png");
-        like.setAttribute("alt", "like.png");
+        var like = document.createElement('img');
+        like.setAttribute('class','like');
+        like.setAttribute('src', 'like.png');
+        like.setAttribute('alt', 'like.png');
         photoPost.appendChild(like);
 
-        photoPost.appendChild(document.createElement("br"));
-        photoPost.appendChild(document.createElement("br"));
+        photoPost.appendChild(document.createElement('br'));
+        photoPost.appendChild(document.createElement('br'));
 
         return photoPost;
     }
 
     function removePhotoPosts(){
-        posts = document.getElementById("posts");
+        posts = document.getElementById('posts');
         var length = posts.childNodes.length;
         for (var i =  length - 1; i > -1; i--) {
             posts.removeChild(posts.childNodes[i]);
@@ -511,32 +481,32 @@ var ModuleDOM = (function () {
 
     let showPhotoPosts = function (photoPosts) {
         removePhotoPosts();
-        var posts = document.getElementById("posts");
-        photoPosts.forEach(function (value) {
-            posts.appendChild(getPhotoPost(value));
+        var posts = document.getElementById('posts');
+        photoPosts.forEach(function (post) {
+            posts.appendChild(getPhotoPost(post));
         });
     };
 
     let addPhotoPosts = function (photoPosts) {
-        var posts = document.getElementById("posts");
+        var posts = document.getElementById('posts');
         photoPosts.forEach(function (value) {
             posts.appendChild(getPhotoPost(value));
         });
     };
 
     let removePhotoPost = function (id) {
-        var posts = document.getElementById("posts");
+        var posts = document.getElementById('posts');
         var childArray = Array.prototype.slice.call(posts.childNodes);
         var removePost = childArray.find(function (item) {
             return item.id === id;
         });
-        if(removePost !== undefined){
+        if(removePost){
             posts.removeChild(removePost);
         }
     };
 
     let editPhotoPost = function (id, photoPost) {
-        var posts = document.getElementById("posts");
+        var posts = document.getElementById('posts');
         var childArray = Array.prototype.slice.call(posts.childNodes);
         var editPost = childArray.find(function (item) {
             return item.id === id;
@@ -545,14 +515,14 @@ var ModuleDOM = (function () {
     };
 
     let showUserName = function (){
-        var user = document.getElementById("username");
+        var user = document.getElementById('username');
         if (userName !== null){
             user.textContent = userName;
-            var header = document.getElementsByTagName("header")[0];
-            var addPhotoPost = document.createElement("img");
-            addPhotoPost.setAttribute("class","add-foto");
-            addPhotoPost.setAttribute("alt","plus.png");
-            addPhotoPost.setAttribute("src","plus.png");
+            var header = document.getElementsByTagName('header')[0];
+            var addPhotoPost = document.createElement('img');
+            addPhotoPost.setAttribute('class','add-foto');
+            addPhotoPost.setAttribute('alt','plus.png');
+            addPhotoPost.setAttribute('src','plus.png');
             header.appendChild(addPhotoPost);
         }
         else{
@@ -561,7 +531,7 @@ var ModuleDOM = (function () {
     };
 
     let showPhotoPost = function(photoPost){
-        var posts = document.getElementById("posts");
+        var posts = document.getElementById('posts');
         posts.insertBefore(getPhotoPost(photoPost),posts.firstElementChild);
     }
 
@@ -585,7 +555,7 @@ function removePhotoPost(id) {
 
 function editPhotoPost(id, photoPost) {
     if (functional.editPhotoPost(id, photoPost)) {
-        ModuleDOM.editPhotoPost(id, photoPost);
+        ModuleDOM.editPhotoPost(id, functional.getPhotoPost(id));
         return true;
     }
      return false;
@@ -605,7 +575,7 @@ function addPhotoPost(photoPost) {
 }
 
 function showPhotoPosts(filterConfig) {
-    ModuleDOM.showPhotoPosts(functional.getPhotoPosts(0, 10,filterConfig));
+    ModuleDOM.showPhotoPosts(functional.getPhotoPosts(0, 10, filterConfig));
 }
 
 function showUserName() {
