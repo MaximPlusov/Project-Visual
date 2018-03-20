@@ -218,12 +218,15 @@ var functional = (function () {
                         return false;
                     }
                 }
-                if(filterConfig.hashTags && photoPost.hashTags ){
+                if(filterConfig.hashTags && photoPost.hashTags){
                     if(!photoPost.hashTags.some(function (t) {
                             return filterConfig.hashTags.includes(t);
                         })){
                         return false;
                     }
+                }
+                if(filterConfig.hashTags && !photoPost.hashTags){
+                    return false;
                 }
                 return true;
             });
@@ -583,4 +586,4 @@ function showUserName() {
  }
 
  showUserName();
- showPhotoPosts();
+ //showPhotoPosts();
