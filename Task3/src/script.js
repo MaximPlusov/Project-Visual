@@ -3,7 +3,7 @@ let photoPosts = [
     {
         id: '1',
         description: 'My 1 trip!',
-        createdAt: new Date('2018-03-04T01:00:00'),
+        createdAt: "2018-03-25T01:05:58.739Z",
         author: 'Maxim Plusov',
         photoLink: '1.jpg',
         hashTags:['perfect','best'],
@@ -12,7 +12,7 @@ let photoPosts = [
     {
         id: '2',
         description: 'My 2 trip!',
-        createdAt: new Date('2018-03-04T02:00:00'),
+        createdAt: "2018-03-25T02:05:58.739Z",
         author: 'Maxim Plusov',
         photoLink: '1.jpg',
         hashTags:['perfect','best'],
@@ -21,7 +21,7 @@ let photoPosts = [
     {
         id: '3',
         description: 'My 3 trip!',
-        createdAt: new Date('2018-03-04T03:00:00'),
+        createdAt: "2018-03-25T16:03:58.739Z",
         author: 'Maxim Plusov',
         photoLink: '1.jpg',
         hashTags:['perfect','best'],
@@ -30,7 +30,7 @@ let photoPosts = [
     {
         id: '4',
         description: 'My 4 trip!',
-        createdAt: new Date('2008-03-04T04:00:00'),
+        createdAt: "2018-03-25T04:04:58.739Z",
         author: 'MaximPlusov',
         photoLink: '1.jpg',
         hashTags:['perfect','best'],
@@ -39,42 +39,47 @@ let photoPosts = [
     {
         id: '5',
         description: 'My 5 trip!',
-        createdAt: new Date('2018-03-04T05:00:00'),
+        createdAt: "2018-03-25T05:05:58.739Z",
         author: 'Maxim Plusov',
-        photoLink: '1.jpg'
+        photoLink: '1.jpg',
+        likes:[]
     },
     {
         id: '6',
         description: 'My 6 trip!',
-        createdAt: new Date('2018-03-04T06:00:00'),
+        createdAt: "2018-03-25T06:05:58.739Z",
         author: 'MaximPlusov',
+        likes:[],
         photoLink: '1.jpg'
     },
     {
         id: '7',
         description: 'My 7 trip!',
-        createdAt: new Date('2018-03-04T07:00:00'),
+        createdAt: "2018-03-25T07:05:58.739Z",
         author: 'Maxim Plusov',
+        likes:[],
         photoLink: '1.jpg'
     },
     {
         id: '8',
         description: 'My 8 trip!',
-        createdAt: new Date('2018-03-31T08:00:00'),
+        createdAt: "2018-03-25T08:05:58.739Z",
         author: 'Maxim Plusov',
+        likes:[],
         photoLink: '1.jpg'
     },
     {
         id: '9',
         description: 'My 9 trip!',
-        createdAt: new Date('2018-03-04T09:00:00'),
+        createdAt: "2018-03-25T09:05:58.739Z",
         author: 'Maxim Plusov',
+        likes:[],
         photoLink: '1.jpg'
     },
     {
         id: '10',
         description: 'My 10 trip!',
-        createdAt: new Date('2018-03-04T10:00:00'),
+        createdAt: "2018-03-25T10:05:58.739Z",
         author: 'Maxim Plusov',
         photoLink: '1.jpg',
         hashTags:['perfect','best'],
@@ -83,75 +88,106 @@ let photoPosts = [
     {
         id: '11',
         description: 'My 11 trip!',
-        createdAt: new Date('2018-03-04T11:00:00'),
+        createdAt: "2018-03-25T11:05:58.739Z",
         author: 'Maxim Plusov',
+        likes:[],
         photoLink: '1.jpg'
     },
     {
         id: '12',
         description: 'My 12 trip!',
-        createdAt: new Date('2018-03-04T12:00:00'),
+        createdAt: "2018-03-25T12:05:58.739Z",
         author: 'Maxim Plusov',
+        likes:[],
         photoLink: '1.jpg'
     },
     {
         id: '13',
         description: 'My 13 trip!',
-        createdAt: new Date('2018-03-04T13:00:00'),
+        createdAt: "2018-03-25T13:05:58.739Z",
         author: 'Maxim Plusov',
+        likes:[],
         photoLink: '1.jpg'
+
     },
     {
         id: '14',
         description: 'My 14 trip!',
-        createdAt: new Date('2018-03-04T14:00:00'),
+        createdAt: "2018-03-25T14:05:58.739Z",
         author: 'Maxim Plusov',
+        likes:[],
         photoLink: '1.jpg'
     },
     {
         id: '15',
         description: 'My 15 trip!',
-        createdAt: new Date('2018-03-04T15:00:00'),
+        createdAt:"2018-03-25T15:05:58.739Z",
         author: 'Maxim Plusov',
+        likes:[],
         photoLink: '1.jpg'
+
     },
     {
         id: '16',
         description: 'My 16 trip!',
-        createdAt: new Date('2018-03-04T16:00:00'),
+        createdAt: "2018-03-25T16:05:58.739Z",
         author: 'Denis Belov',
         photoLink: '1.jpg',
+        likes:[],
         hashTags:['perfect','day']
+
     },
     {
         id: '17',
         description: 'My 17 trip!',
-        createdAt: new Date('2018-03-04T17:00:00'),
+        createdAt: "2018-03-25T17:05:58.739Z",
         author: 'Maxim Plusov',
+        likes:[],
         photoLink: '1.jpg'
     },
     {
         id: '18',
         description: 'My 18 trip!',
-        createdAt: new Date('2018-03-04T18:00:00'),
+        createdAt: "2018-03-25T18:05:58.739Z",
         author: 'Maxim Rachok',
         photoLink: '1.jpg',
+        likes:[],
         hashTags:['life','best']
     },
     {
         id: '19',
         description: 'My 19 trip!',
-        createdAt: new Date('2018-03-04T19:00:00'),
+        createdAt: "2018-03-25T19:05:58.739Z",
         author: 'Maxim Plusov',
+        likes:[],
         photoLink: '1.jpg'
     },
     {
         id: '20',
         description: 'My 20 trip!',
-        createdAt: new Date('2018-03-04T20:00:00'),
+        createdAt: "2018-03-25T20:05:58.739Z",
         author: 'Maxim Plusov',
         photoLink: '1.jpg',
         likes:['Maxim Plusov']
+    }
+]
+
+let users = [
+    {
+        name: 'Maxim Plusov',
+        password: '111'
+    },
+    {
+        name: 'admin',
+        password: 'admin'
+    },
+    {
+        name: 'Maxim Rachok',
+        password: '123'
+    },
+    {
+        name: 'Denis Belov',
+        paassword: '!!!'
     }
 ]
 
@@ -168,7 +204,13 @@ var functional = (function () {
     }
 
     function comparator(a,b){
-        return b.createdAt - a.createdAt;
+        if(b.createdAt > a.createdAt){
+            return 1;
+        }
+        if(b.createdAt < a.createdAt){
+            return -1;
+        }
+        return 0;
     }
 
     let removePhotoPost = function(id){
@@ -212,20 +254,18 @@ var functional = (function () {
                     }
                 }
                 if(filterConfig.createdAt){
-                    if(photoPost.createdAt.getFullYear() !== filterConfig.createdAt.getFullYear()
-                        || photoPost.createdAt.getMonth() !== filterConfig.createdAt.getMonth()
-                        || photoPost.createdAt.getDate() !== filterConfig.createdAt.getDate()){
+                    if(filterConfig.createdAt.substring(0,10) !== photoPost.createdAt.substring(0,10)){
                         return false;
                     }
                 }
-                if(filterConfig.hashTags && photoPost.hashTags){
-                    if(!photoPost.hashTags.some(function (t) {
-                            return filterConfig.hashTags.includes(t);
+                if(filterConfig.hashTags && filterConfig.hashTags[0]!=='' && photoPost.hashTags){
+                    if(!filterConfig.hashTags.every(function (t) {
+                            return photoPost.hashTags.includes(t);
                         })){
                         return false;
                     }
                 }
-                if(filterConfig.hashTags && !photoPost.hashTags){
+                if(filterConfig.hashTags && filterConfig.hashTags[0]!=='' && !photoPost.hashTags){
                     return false;
                 }
                 return true;
@@ -233,7 +273,7 @@ var functional = (function () {
             filterPhotoPosts.sort(comparator);
             return filterPhotoPosts.slice(skip,top+skip);
         }
-        photoPosts.sort(comparator);
+          photoPosts.sort(comparator);
         return photoPosts.slice(skip,top+skip);
     }
 
@@ -244,7 +284,7 @@ var functional = (function () {
         var val = {
             id: function(){return typeof photoPost.id !== 'string'},
             description: function(){ return typeof photoPost.description !== 'string' || photoPost.description.length >= 200},
-            createdAt: function(){ return typeof photoPost.createdAt !== 'object'},
+            createdAt: function(){ return typeof photoPost.createdAt !== 'string'},
             author: function(){ return typeof photoPost.author !== 'string' || photoPost.author.length === 0},
             photoLink: function(){return typeof photoPost.photoLink !== 'string' || photoPost.photoLink.length === 0},
             hashTags:  function(){if(photoPost.hashTags !== undefined){
@@ -303,84 +343,6 @@ var functional = (function () {
         return false;
     }
 
-    function log(){
-
-
-        console.log("getPhotoPost('1')");
-        console.log(getPhotoPost('1'));
-        console.log("getPhotoPost('21')");
-        console.log(getPhotoPost('21'));
-        console.log("getPhotoPost(1)");
-        console.log(getPhotoPost(1));
-
-        console.log("removePhotoPost('2')");
-        console.log(removePhotoPost('2'));
-        console.log("getPhotoPost('2')");
-        console.log(getPhotoPost('2'));
-        console.log("removePhotoPost(1)");
-        console.log(removePhotoPost(1));
-
-        console.log("getPhotoPosts()");
-        console.log(getPhotoPosts());
-        console.log("getPhotoPosts('10')");
-        console.log(getPhotoPosts('10'));
-        console.log("getPhotoPosts(10)");
-        console.log(getPhotoPosts(10));
-        console.log("getPhotoPosts(10,15)");
-        console.log(getPhotoPosts(10,15));
-        console.log("getPhotoPosts(0,10,{author:'MaximPlusov'})");
-        console.log(getPhotoPosts(0,10,{author:'MaximPlusov'}));
-        console.log("getPhotoPosts(0,10,{createdAt: new Date('2018-03-04T01:00:00')})");
-        console.log(getPhotoPosts(0,10,{createdAt: new Date('2018-03-04T01:00:00')}));
-        console.log("getPhotoPosts(0,10,{author:'MaximPlusov',createdAt: new Date('2018-03-04T01:00:00')})");
-        console.log(getPhotoPosts(0,10,{author:'MaximPlusov',createdAt: new Date('2018-03-04T01:00:00')}));
-        console.log("getPhotoPosts(0,20,{hashTags:['life','day']})");
-        console.log(getPhotoPosts(0,20,{hashTags:['life','day']}));
-
-        console.log("validatePhotoPost(photoPosts[0])");
-        console.log(validatePhotoPost(photoPosts[0]));
-        console.log("validatePhotoPost({id:'1'})");
-        console.log(validatePhotoPost({id:'1'}));
-        console.log("validatePhotoPost({id: '1', descriprion: 'My 1 trip!', createdAt: new Date('2018-03-04T01:00:00'),author: 'Maxim Plusov',photoLink: '',hashTags:['perfect','best'],likes:['Maxim Plusov']})");
-        console.log(validatePhotoPost({id: '1',
-            descriprion: 'My 1 trip!',
-            createdAt: new Date('2018-03-04T01:00:00'),
-            author: 'Maxim Plusov',
-            photoLink: '',
-            hashTags:['perfect','best'],
-            likes:['Maxim Plusov']}));
-        console.log("validatePhotoPost({id: '1', descriprion: 'My 1 trip!', createdAt: new Date('2018-03-04T01:00:00'), author: 'Maxim Plusov', photoLink: 'http//car.jpg'})");
-        console.log(validatePhotoPost({id: '1',
-            descriprion: 'My 1 trip!',
-            createdAt: new Date('2018-03-04T01:00:00'),
-            author: 'Maxim Plusov',
-            photoLink: 'http//car.jpg'}));
-
-        console.log("addPhotoPost({id: '1', descriprion: 'My 1 trip!', createdAt: new Date('2018-03-04T01:00:00'), author: 'Maxim Plusov', photoLink: 'http//car.jpg'})");
-        console.log(addPhotoPost({id: '1',
-            descriprion: 'My 1 trip!',
-            createdAt: new Date('2018-03-04T01:00:00'),
-            author: 'Maxim Plusov',
-            photoLink: 'http//car.jpg'}));
-        console.log("photoPosts[19]");
-        console.log(photoPosts[19]);
-        console.log("addPhotoPost({id: '1', descriprion: '111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111', createdAt: new Date('2018-03-04T01:00:00'), author: 'Maxim Plusov', photoLink: 'http//car.jpg'})");
-        console.log(addPhotoPost({id: '1',
-            descriprion: '111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111',
-            createdAt: new Date('2018-03-04T01:00:00'),
-            author: 'Maxim Plusov',
-            photoLink: 'http//car.jpg'}));
-
-        console.log("editPhotoPost('3',{description :'Hello!',hashTags:['love','friends'],photoLink:'http/1.jpg'})");
-        console.log(editPhotoPost('3',{description :'Hello!',hashTags:['love','friends'],photoLink:'http/1.jpg'}));
-        console.log("getPhotoPost('3')");
-        console.log(getPhotoPost('3'));
-        console.log("editPhotoPost('13',{description :'Hello!',hashTags:['love','friends'],photoLink:'http/1.jpg'})");
-        console.log(editPhotoPost('13',{description :'Hello!',hashTags:['love','friends'],photoLink:'http/1.jpg'}));
-    }
-
-    //log();
-
     return {
         searchPhotoPost,
         getPhotoPosts,
@@ -393,9 +355,204 @@ var functional = (function () {
 
 })();
 
-const userName = 'Maxim Plusov';
+var userName = null;
+
+var id = 21;
 
 var ModuleDOM = (function () {
+    function getAddButon(){
+        var add = document.createElement('img');
+        add.setAttribute('class','add-posts');
+        add.setAttribute('alt','plus.png');
+        add.setAttribute('src','plus.png');
+        add.setAttribute('id','add-posts');
+        add.addEventListener('click',ModuleEvent.eventAddPhotoPosts);
+        return add;
+    }
+
+    function removeLoginField(){
+        var signIn = document.forms.signinfield;
+        var length = signIn.childNodes.length;
+        for (var i =  length - 1; i > -1; i--) {
+            signIn.removeChild(signIn.childNodes[i]);
+        }
+        signIn.removeAttribute('class');
+    }
+
+    function removeAddPost(){
+        var addPost = document.forms.addpost;
+        var length = addPost.childNodes.length;
+        for (var i =  length - 1; i > -1; i--) {
+            addPost.removeChild(addPost.childNodes[i]);
+        }
+        addPost.removeAttribute('class');
+    }
+
+    function removeEditPost(){
+        var editPost = document.forms.editpost;
+        var length = editPost.childNodes.length;
+        for (var i =  length - 1; i > -1; i--) {
+            editPost.removeChild(editPost.childNodes[i]);
+        }
+        editPost.removeAttribute('class');
+    }
+
+    let addEditPost = function (post) {
+        removeEditPost();
+        var form = document.forms.editpost;
+        form.setAttribute('class','post');
+
+        var description = document.createElement('label');
+        description.setAttribute('class','label');
+        description.textContent = 'Description:';
+        form.appendChild(description);
+
+        form.appendChild(document.createElement('br'));
+
+        var descriptionField = document.createElement('textarea');
+        descriptionField.setAttribute('name','description');
+        descriptionField.setAttribute('class','label');
+        descriptionField.value = post.description;
+        form.appendChild(descriptionField);
+
+        form.appendChild(document.createElement('br'));
+
+        var photoLink = document.createElement('label');
+        photoLink.setAttribute('class','label');
+        photoLink.textContent = 'PhotoLink:';
+        form.appendChild(photoLink);
+
+        form.appendChild(document.createElement('br'));
+
+        var photoLinkField = document.createElement('input');
+        photoLinkField.setAttribute('class','label');
+        photoLinkField.setAttribute('name','photolink');
+        photoLinkField.value = post.photoLink;
+        form.appendChild(photoLinkField);
+
+        form.appendChild(document.createElement('br'));
+
+        var tags = document.createElement('label');
+        tags.textContent = 'HashTags:';
+        tags.setAttribute('class','label');
+        form.appendChild(tags);
+
+        form.appendChild(document.createElement('br'));
+
+        var tagsField = document.createElement('input');
+        tagsField.setAttribute('name','tags');
+        tagsField.value = post.hashTags.join(' ');
+        tagsField.setAttribute('class','label');
+        form.appendChild(tagsField);
+
+        form.appendChild(document.createElement('br'));
+
+        var button = document.createElement('button');
+        button.setAttribute('class','button');
+        button.setAttribute('edit-post-id',post.id);
+        button.textContent = 'Edit post';
+        button.addEventListener('click',ModuleEvent.eventEditPost);
+
+        form.appendChild(button);
+    }
+
+    let addAddPost = function () {
+        removeAddPost();
+        removeEditPost();
+
+        var form = document.forms.addpost;
+        form.setAttribute('class','post');
+
+        var description = document.createElement('label');
+        description.setAttribute('class','label');
+        description.textContent = 'Description:            ';
+        form.appendChild(description);
+
+        form.appendChild(document.createElement('br'));
+
+        var descriptionField = document.createElement('textarea');
+        descriptionField.setAttribute('name','description');
+        descriptionField.setAttribute('class','label');
+        form.appendChild(descriptionField);
+
+        form.appendChild(document.createElement('br'));
+
+        var photoLink = document.createElement('label');
+        photoLink.setAttribute('class','label');
+
+        photoLink.textContent = 'PhotoLink:';
+        form.appendChild(photoLink);
+
+        form.appendChild(document.createElement('br'));
+
+        var photoLinkField = document.createElement('input');
+        photoLinkField.setAttribute('class','label');
+        photoLinkField.setAttribute('name','photolink');
+        form.appendChild(photoLinkField);
+
+        form.appendChild(document.createElement('br'));
+
+        var tags = document.createElement('label');
+        tags.textContent = 'HashTags:';
+        tags.setAttribute('class','label');
+        form.appendChild(tags);
+
+        form.appendChild(document.createElement('br'));
+
+        var tagsField = document.createElement('input');
+        tagsField.setAttribute('name','tags');
+        tagsField.setAttribute('class','label');
+        form.appendChild(tagsField);
+
+        form.appendChild(document.createElement('br'));
+
+        var button = document.createElement('button');
+        button.setAttribute('class','button');
+        button.textContent = 'Add post';
+        button.addEventListener('click',ModuleEvent.eventAddPost);
+
+        form.appendChild(button);
+    }
+
+    let addLoginField = function (){
+        removeLoginField();
+        var form = document.forms.signinfield;
+        form.setAttribute('class','post');
+        var login = document.createElement('label');
+        login.setAttribute('class','label');
+        login.textContent = 'Login';
+        form.appendChild(login);
+
+        form.appendChild(document.createElement('br'));
+
+        var loginField = document.createElement('input');
+        loginField.setAttribute('class','label');
+        loginField.setAttribute('name','loginfield')
+        form.appendChild(loginField);
+
+        form.appendChild(document.createElement('br'));
+
+        var password = document.createElement('label');
+        password.setAttribute('class','label');
+        password.textContent = 'Password';
+        form.appendChild(password);
+
+        form.appendChild(document.createElement('br'));
+
+        var passwordField = document.createElement('input');
+        passwordField.setAttribute('class','label');
+        passwordField.setAttribute('name','passwordfield');
+        passwordField.setAttribute('type','password');
+        form.appendChild(passwordField);
+
+        form.appendChild(document.createElement('br'));
+
+        var button = document.createElement('button');
+        button.setAttribute('class','button');
+        button.textContent ='Log in';
+        button.addEventListener('click',ModuleEvent.eventLogin);
+        form.appendChild(button);
+    }
 
     function getPhotoPost(post) {
 
@@ -409,22 +566,26 @@ var ModuleDOM = (function () {
         photoPost.appendChild(author);
 
         if(userName === post.author){
-            var del = document.createElement('img');
-            del.setAttribute('class','delete');
-            del.setAttribute('alt','delete.png');
-            del.setAttribute('src','delete.png');
-            photoPost.appendChild(del);
+            var img = document.createElement('img');
+            img.setAttribute('class','delete');
+            img.setAttribute('alt','delete.png');
+            img.setAttribute('src','delete.png');
+            img.setAttribute('post-id',post.id)
+            img.addEventListener('click',ModuleEvent.eventRemovePhotoPost);
+            photoPost.appendChild(img);
 
             var edit = document.createElement('img');
             edit.setAttribute('class','edit');
             edit.setAttribute('alt','edit.png');
+            edit.setAttribute('edit-post-id',post.id);
             edit.setAttribute('src','edit.png');
+            edit.addEventListener('click',ModuleEvent.eventNewEditPost)
             photoPost.appendChild(edit);
         }
 
         var time = document.createElement('div');
-        time.setAttribute('class', 'time');
-        time.textContent = post.createdAt.getDate() + " " + post.createdAt.getMonth() + " " + post.createdAt.toString().substring(10,21);
+        time.setAttribute('class','time');
+        time.textContent = post.createdAt.toString().substring(0,10)+" "+post.createdAt.toString().substring(11,19);
         photoPost.appendChild(time);
 
         var img = document.createElement('img');
@@ -453,7 +614,8 @@ var ModuleDOM = (function () {
         }
 
         var numLike = document.createElement('div');
-        numLike.setAttribute('class','num-like')
+        numLike.setAttribute('class','num-like');
+        numLike.setAttribute('id','numlike'+post.id.toString());
         if(post.likes){
             numLike.textContent = post.likes.length;
         }
@@ -463,9 +625,16 @@ var ModuleDOM = (function () {
         photoPost.appendChild(numLike);
 
         var like = document.createElement('img');
+        like.setAttribute('id-like',post.id);
         like.setAttribute('class','like');
-        like.setAttribute('src', 'like.png');
+        if(post.likes && post.likes.includes(userName)){
+            like.setAttribute('src', 'like.png');
+        }
+        else{
+            like.setAttribute('src', 'unlike.png');
+        }
         like.setAttribute('alt', 'like.png');
+        like.addEventListener('click',ModuleEvent.eventLike);
         photoPost.appendChild(like);
 
         photoPost.appendChild(document.createElement('br'));
@@ -474,27 +643,53 @@ var ModuleDOM = (function () {
         return photoPost;
     }
 
-    function removePhotoPosts(){
-        posts = document.getElementById('posts');
+    let removePhotoPosts = function (){
+        var posts = document.getElementById('posts');
         var length = posts.childNodes.length;
         for (var i =  length - 1; i > -1; i--) {
             posts.removeChild(posts.childNodes[i]);
         }
+        var addButton = document.getElementsByClassName('add-button')[0];
+        if(document.getElementById('add-posts') !== null){
+            addButton.removeChild(document.getElementById('add-posts'));
+        }
     }
 
-    let showPhotoPosts = function (photoPosts) {
+    let showPhotoPosts = function (showPosts) {
         removePhotoPosts();
+        removeLoginField();
+        removeAddPost();
+        removeEditPost();
+
+        var addButton = document.getElementsByClassName('add-button')[0];
         var posts = document.getElementById('posts');
-        photoPosts.forEach(function (post) {
+        showPosts.forEach(function (post) {
             posts.appendChild(getPhotoPost(post));
         });
+        if(photoPosts.length === posts.childElementCount || showPosts.length<10){
+           var div = document.createElement('div');
+           div.textContent = 'Ops! Posts have ended!';
+           div.setAttribute('class','add');
+           div.setAttribute('id','add-posts');
+           addButton.appendChild(div);
+        }
+        else{
+            addButton.appendChild(getAddButon());
+        }
     };
 
-    let addPhotoPosts = function (photoPosts) {
+    let addPhotoPosts = function (addPosts) {
         var posts = document.getElementById('posts');
-        photoPosts.forEach(function (value) {
-            posts.appendChild(getPhotoPost(value));
+        addPosts.forEach(function (post) {
+            posts.appendChild(getPhotoPost(post));
         });
+        if(photoPosts.length === posts.childElementCount || addPosts.length<10){
+            var div = document.createElement('div');
+            div.textContent = 'Ops! Posts have ended!';
+            div.setAttribute('class','add');
+            div.setAttribute('id','add-posts');
+            document.getElementsByClassName('add-button')[0].replaceChild(div,document.getElementById('add-posts'));
+        }
     };
 
     let removePhotoPost = function (id) {
@@ -518,18 +713,37 @@ var ModuleDOM = (function () {
     };
 
     let showUserName = function (){
-        var user = document.getElementById('username');
+        var person = document.getElementsByClassName('person')[0];
+        var logo = document.getElementsByClassName('logo')[0];
+        logo.addEventListener('click',ModuleEvent.eventMainPage);
+        document.forms.search.img.addEventListener('click',ModuleEvent.eventSearchPosts);
+        var length = person.childNodes.length;
+        for (var i =  length - 1; i > -1; i--) {
+            person.removeChild(person.childNodes[i]);
+        }
+        var user = document.createElement('div');
+        user.setAttribute('id','username');
+        user.setAttribute('class','username');
+        person.appendChild(user);
         if (userName !== null){
             user.textContent = userName;
-            var header = document.getElementsByTagName('header')[0];
             var addPhotoPost = document.createElement('img');
             addPhotoPost.setAttribute('class','add-foto');
             addPhotoPost.setAttribute('alt','plus.png');
             addPhotoPost.setAttribute('src','plus.png');
-            header.appendChild(addPhotoPost);
+            addPhotoPost.addEventListener('click',ModuleEvent.eventNewPost);
+            person.appendChild(addPhotoPost);
+
+            var exit = document.createElement('img');
+            exit.setAttribute('class','add-foto');
+            exit.setAttribute('alt','exit.png');
+            exit.setAttribute('src','exit.png');
+            exit.addEventListener('click',ModuleEvent.eventExit);
+            person.appendChild(exit);
         }
         else{
             user.textContent = 'Sign in';
+            user.addEventListener('click',ModuleEvent.eventSignIn);
         }
     };
 
@@ -544,13 +758,154 @@ var ModuleDOM = (function () {
         editPhotoPost,
         showUserName,
         showPhotoPost,
-        addPhotoPosts
+        addPhotoPosts,
+        removePhotoPosts,
+        addLoginField,
+        addAddPost,
+        addEditPost
+    };
+})();
+
+var ModuleEvent = (function (){
+    let eventRemovePhotoPost = function () {
+        removePhotoPost(this.getAttribute('post-id'));
+    }
+
+    let eventAddPhotoPosts = function(){
+        addPhotoPosts();
+    }
+
+    let eventExit = function(){
+        userName = null;
+        sendUserNameinLocalStorage();
+        eventMainPage();
+    }
+
+    let eventSignIn = function(){
+        ModuleDOM.removePhotoPosts();
+        ModuleDOM.addLoginField();
+    }
+
+    let eventLike = function(){
+        var id = this.getAttribute('id-like');
+        var post = photoPosts[functional.searchPhotoPost(id)];
+        if(post.author !== userName && userName !== null){
+            var numlike = document.getElementById('numlike'+post.id.toString());
+            var i = post.likes.findIndex(function(like){
+                return like === userName;
+            });
+            if(i !== -1){
+                this.setAttribute('src','unlike.png');
+                post.likes.splice(i);
+            }
+            else{
+                post.likes.push(userName);
+                this.setAttribute('src','like.png');
+            }
+            numlike.textContent = post.likes.length;
+            sendPostsInLocalStorage();
+        }
+    }
+
+    let eventMainPage = function(){
+        document.forms.search.time.value='';
+        document.forms.search.author.value='';
+        document.forms.search.tags.value='';
+        showUserName();
+        showPhotoPosts();
+    }
+
+    let eventLogin = function () {
+        var name = document.forms.signinfield.loginfield.value;
+        var i = users.findIndex(function(user,i,users){
+            if (user.name === name) return true;
+            return false;
+        });
+        if(i !== -1){
+            if(users[i].password === document.forms.signinfield.passwordfield.value){
+                userName = name;
+                sendUserNameinLocalStorage();
+                eventMainPage();
+            }
+            else{
+                ModuleDOM.addLoginField();
+                var div = document.createElement('div');
+                div.textContent = 'Error! Incorrect password!';
+                div.setAttribute('class','label');
+                document.forms.signinfield.appendChild(div);
+            }
+        }
+        else{
+            ModuleDOM.addLoginField();
+            var div = document.createElement('div');
+            div.setAttribute('class','label');
+            div.textContent = 'Error! Such user does not exist!';
+            document.forms.signinfield.appendChild(div);
+        }
+    }
+
+    let eventSearchPosts = function (){
+        showPhotoPosts();
+    }
+
+    let eventNewPost = function (){
+        ModuleDOM.removePhotoPosts();
+        ModuleDOM.addAddPost();
+    }
+
+    let eventNewEditPost = function(){
+        ModuleDOM.removePhotoPosts();
+        ModuleDOM.addEditPost(photoPosts[functional.searchPhotoPost(this.getAttribute('edit-post-id'))]);
+    }
+
+    let eventAddPost = function (){
+        var post = {
+            id: id.toString(),
+            description: document.forms.addpost.description.value,
+            createdAt: JSON.parse(JSON.stringify(new Date())),
+            author: userName,
+            photoLink: document.forms.addpost.photolink.value,
+            likes:[],
+            hashTags: document.forms.addpost.tags.value.split(' ')
+        }
+        eventMainPage();
+        if(addPhotoPost(post)){
+            id++;
+        }
+        sendPostsInLocalStorage();
+    }
+
+    let eventEditPost = function(){
+        var post = {
+            description: document.forms.editpost.description.value,
+            photoLink: document.forms.editpost.photolink.value,
+            hashTags: document.forms.editpost.tags.value.split(' ')
+        }
+        eventMainPage();
+        editPhotoPost(this.getAttribute('edit-post-id'),post);
+        sendPostsInLocalStorage();
+    }
+
+    return{
+        eventRemovePhotoPost,
+        eventAddPhotoPosts,
+        eventExit,
+        eventSignIn,
+        eventLike,
+        eventMainPage,
+        eventLogin,
+        eventNewPost,
+        eventAddPost,
+        eventEditPost,
+        eventNewEditPost,
+        eventSearchPosts
     };
 })();
 
 function removePhotoPost(id) {
     if (functional.removePhotoPost(id)) {
         ModuleDOM.removePhotoPost(id);
+        sendPostsInLocalStorage();
         return true;
     }
     return false;
@@ -559,13 +914,19 @@ function removePhotoPost(id) {
 function editPhotoPost(id, photoPost) {
     if (functional.editPhotoPost(id, photoPost)) {
         ModuleDOM.editPhotoPost(id, functional.getPhotoPost(id));
+        sendPostsInLocalStorage();
         return true;
     }
      return false;
  }
 
-function addPhotoPosts(filterConfig){
+function addPhotoPosts(){
     posts = document.getElementById("posts");
+    var filterConfig ={
+        author: document.forms.search.author.value,
+        hashTags: document.forms.search.tags.value.split(' '),
+        createdAt: document.forms.search.time.value
+    }
     ModuleDOM.addPhotoPosts(functional.getPhotoPosts(posts.childNodes.length, 10,filterConfig));
 }
 
@@ -577,13 +938,44 @@ function addPhotoPost(photoPost) {
     return false;
 }
 
-function showPhotoPosts(filterConfig) {
+function showPhotoPosts() {
+    receivePostsOfLocalStorage();
+    var filterConfig ={
+        author: document.forms.search.author.value,
+        hashTags: document.forms.search.tags.value.split(' '),
+        createdAt: document.forms.search.time.value
+    }
     ModuleDOM.showPhotoPosts(functional.getPhotoPosts(0, 10, filterConfig));
 }
 
 function showUserName() {
+     receiveUserNameofLocalStorage();
      ModuleDOM.showUserName();
  }
 
- showUserName();
- //showPhotoPosts();
+function sendPostsInLocalStorage(){
+    localStorage.setItem('posts',JSON.stringify(photoPosts));
+    localStorage.setItem('id',JSON.stringify(id));
+}
+
+function receivePostsOfLocalStorage(){
+    var posts = JSON.parse(localStorage.getItem('posts'));
+    if(posts !== null){
+        photoPosts = posts;
+        id = JSON.parse(localStorage.getItem('id'));
+    }
+}
+
+function sendUserNameinLocalStorage(){
+    localStorage.setItem('user',JSON.stringify(userName));
+}
+
+function receiveUserNameofLocalStorage(){
+    var user = JSON.parse(localStorage.getItem('user'));
+    if(user !== null){
+        userName = user;
+    }
+}
+
+showUserName();
+showPhotoPosts();

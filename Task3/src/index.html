@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <link href="styles.css" rel="stylesheet">
     <title>Visual</title>
-
 </head>
 <body>
 <header class="menu" >
     <div class="logo">Visual</div>
-    <img alt="searh.png"class="searh-foto" src="searh.png" >
-    <input class="search" type="text" name="search">
-    <img alt="calendar.png"class="calendar" src="calendar.png">
-    <div class="username" id="username">Sign in</div>
-    <!--<img class="add-foto" alt="plus.png"src="plus.png">-->
+    <form name="search">
+        <img alt="searh.png" name="img" class="searh-foto" src="searh.png" >
+        <label class="search">Author:</label>
+        <input class="search" type="text" name="author">
+        <label class="search">Tags:</label>
+        <input class="search" type="text" name="tags">
+        <img alt="calendar.png"class="calendar" src="calendar.png">
+        <input class="search" type="date" name="time">
+    </form>
+    <div class="person">
+        <div class="username" id="username">Sign in</div>
+    </div>
 </header>
 <br><br><br>
+<form name="signinfield" id="sign-in-field"></form>
+<form name="addpost" id="add-post"></form>
+<form name="editpost" id="edit-post"></form>
 <div class="posts" id="posts"></div>
 <!--<form class="post">-->
     <!--<div class="author">Maxim Plusov</div>-->
@@ -32,13 +41,14 @@
     <!--<img class="like"alt="like.png" src="like.png">-->
     <!--<br><br>-->
 <!--</form>-->
+<div class="add-button"></div>
 <br>
-<img class="add-posts" alt="plus.png" src="plus.png">
+<br>
 <br>
 <br>
 <br>
 <footer>
-    <div>Visual Maxim Plusov 2k7 maxplusim@mail.ru 25.02.2018</div>
+    <div>Visual Maxim Plusov 2k7 maxplusim@mail.ru 26.03.2018</div>
 </footer>
 <script src="script.js"></script>
 </body>
