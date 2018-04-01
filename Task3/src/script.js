@@ -3,7 +3,7 @@ let photoPosts = [
     {
         id: '1',
         description: 'My 1 trip!',
-        createdAt: "2018-03-25T01:05:58.739Z",
+        createdAt: new Date('2018-04-01T01:00:00'),
         author: 'Maxim Plusov',
         photoLink: '1.jpg',
         hashTags:['perfect','best'],
@@ -12,7 +12,7 @@ let photoPosts = [
     {
         id: '2',
         description: 'My 2 trip!',
-        createdAt: "2018-03-25T02:05:58.739Z",
+        createdAt: new Date('2018-04-01T02:00:00'),
         author: 'Maxim Plusov',
         photoLink: '1.jpg',
         hashTags:['perfect','best'],
@@ -21,7 +21,7 @@ let photoPosts = [
     {
         id: '3',
         description: 'My 3 trip!',
-        createdAt: "2018-03-25T16:03:58.739Z",
+        createdAt: new Date('2018-04-01T03:00:00'),
         author: 'Maxim Plusov',
         photoLink: '1.jpg',
         hashTags:['perfect','best'],
@@ -30,7 +30,7 @@ let photoPosts = [
     {
         id: '4',
         description: 'My 4 trip!',
-        createdAt: "2018-03-25T04:04:58.739Z",
+        createdAt: new Date('2018-04-01T04:00:00'),
         author: 'MaximPlusov',
         photoLink: '1.jpg',
         hashTags:['perfect','best'],
@@ -39,7 +39,7 @@ let photoPosts = [
     {
         id: '5',
         description: 'My 5 trip!',
-        createdAt: "2018-03-25T05:05:58.739Z",
+        createdAt: new Date('2018-04-01T05:00:00'),
         author: 'Maxim Plusov',
         photoLink: '1.jpg',
         likes:[]
@@ -47,7 +47,7 @@ let photoPosts = [
     {
         id: '6',
         description: 'My 6 trip!',
-        createdAt: "2018-03-25T06:05:58.739Z",
+        createdAt: new Date('2018-04-01T06:00:00'),
         author: 'MaximPlusov',
         likes:[],
         photoLink: '1.jpg'
@@ -55,7 +55,7 @@ let photoPosts = [
     {
         id: '7',
         description: 'My 7 trip!',
-        createdAt: "2018-03-25T07:05:58.739Z",
+        createdAt: new Date('2018-04-01T07:00:00'),
         author: 'Maxim Plusov',
         likes:[],
         photoLink: '1.jpg'
@@ -63,7 +63,7 @@ let photoPosts = [
     {
         id: '8',
         description: 'My 8 trip!',
-        createdAt: "2018-03-25T08:05:58.739Z",
+        createdAt: new Date('2018-04-01T08:00:00'),
         author: 'Maxim Plusov',
         likes:[],
         photoLink: '1.jpg'
@@ -71,7 +71,7 @@ let photoPosts = [
     {
         id: '9',
         description: 'My 9 trip!',
-        createdAt: "2018-03-25T09:05:58.739Z",
+        createdAt: new Date('2018-04-01T09:00:00'),
         author: 'Maxim Plusov',
         likes:[],
         photoLink: '1.jpg'
@@ -79,7 +79,7 @@ let photoPosts = [
     {
         id: '10',
         description: 'My 10 trip!',
-        createdAt: "2018-03-25T10:05:58.739Z",
+        createdAt: new Date('2018-04-01T10:00:00'),
         author: 'Maxim Plusov',
         photoLink: '1.jpg',
         hashTags:['perfect','best'],
@@ -88,7 +88,7 @@ let photoPosts = [
     {
         id: '11',
         description: 'My 11 trip!',
-        createdAt: "2018-03-25T11:05:58.739Z",
+        createdAt: new Date('2018-04-01T11:00:00'),
         author: 'Maxim Plusov',
         likes:[],
         photoLink: '1.jpg'
@@ -96,7 +96,7 @@ let photoPosts = [
     {
         id: '12',
         description: 'My 12 trip!',
-        createdAt: "2018-03-25T12:05:58.739Z",
+        createdAt: new Date('2018-04-01T12:00:00'),
         author: 'Maxim Plusov',
         likes:[],
         photoLink: '1.jpg'
@@ -104,7 +104,7 @@ let photoPosts = [
     {
         id: '13',
         description: 'My 13 trip!',
-        createdAt: "2018-03-25T13:05:58.739Z",
+        createdAt: new Date('2018-04-01T13:00:00'),
         author: 'Maxim Plusov',
         likes:[],
         photoLink: '1.jpg'
@@ -113,7 +113,7 @@ let photoPosts = [
     {
         id: '14',
         description: 'My 14 trip!',
-        createdAt: "2018-03-25T14:05:58.739Z",
+        createdAt: new Date('2018-04-01T14:00:00'),
         author: 'Maxim Plusov',
         likes:[],
         photoLink: '1.jpg'
@@ -121,7 +121,7 @@ let photoPosts = [
     {
         id: '15',
         description: 'My 15 trip!',
-        createdAt:"2018-03-25T15:05:58.739Z",
+        createdAt: new Date('2018-04-01T15:00:00'),
         author: 'Maxim Plusov',
         likes:[],
         photoLink: '1.jpg'
@@ -130,7 +130,7 @@ let photoPosts = [
     {
         id: '16',
         description: 'My 16 trip!',
-        createdAt: "2018-03-25T16:05:58.739Z",
+        createdAt: new Date('2018-04-01T16:00:00'),
         author: 'Denis Belov',
         photoLink: '1.jpg',
         likes:[],
@@ -140,7 +140,7 @@ let photoPosts = [
     {
         id: '17',
         description: 'My 17 trip!',
-        createdAt: "2018-03-25T17:05:58.739Z",
+        createdAt: new Date('2018-04-01T17:00:00'),
         author: 'Maxim Plusov',
         likes:[],
         photoLink: '1.jpg'
@@ -148,7 +148,7 @@ let photoPosts = [
     {
         id: '18',
         description: 'My 18 trip!',
-        createdAt: "2018-03-25T18:05:58.739Z",
+        createdAt: new Date('2018-04-01T18:00:00'),
         author: 'Maxim Rachok',
         photoLink: '1.jpg',
         likes:[],
@@ -157,7 +157,7 @@ let photoPosts = [
     {
         id: '19',
         description: 'My 19 trip!',
-        createdAt: "2018-03-25T19:05:58.739Z",
+        createdAt: new Date('2018-04-01T19:00:00'),
         author: 'Maxim Plusov',
         likes:[],
         photoLink: '1.jpg'
@@ -165,7 +165,7 @@ let photoPosts = [
     {
         id: '20',
         description: 'My 20 trip!',
-        createdAt: "2018-03-25T20:05:58.739Z",
+        createdAt: new Date('2018-04-01T20:00:00'),
         author: 'Maxim Plusov',
         photoLink: '1.jpg',
         likes:['Maxim Plusov']
@@ -187,7 +187,11 @@ let users = [
     },
     {
         name: 'Denis Belov',
-        paassword: '!!!'
+        password: '!!!'
+    },
+    {
+        name: 'Sasha',
+        password: '!@#'
     }
 ]
 
@@ -198,19 +202,15 @@ var functional = (function () {
             return false;
         }
         return photoPosts.findIndex(function(photoPost,i,photoPosts){
-            if (photoPost.id === id) return true;
+            if (photoPost.id === id){
+                return true;
+            }
             return false;
         });
     }
 
     function comparator(a,b){
-        if(b.createdAt > a.createdAt){
-            return 1;
-        }
-        if(b.createdAt < a.createdAt){
-            return -1;
-        }
-        return 0;
+        return b.createdAt - a.createdAt;
     }
 
     let removePhotoPost = function(id){
@@ -249,23 +249,26 @@ var functional = (function () {
         if(filterConfig){
             var filterPhotoPosts = photoPosts.filter(function(photoPost){
                 if(filterConfig.author){
-                    if (photoPost.author !== filterConfig.author){
+                    if (photoPost.author.indexOf(filterConfig.author) === -1){
                         return false;
                     }
                 }
                 if(filterConfig.createdAt){
-                    if(filterConfig.createdAt.substring(0,10) !== photoPost.createdAt.substring(0,10)){
+                    filterConfig.createdAt = new Date(filterConfig.createdAt);
+                    if(photoPost.createdAt.getFullYear() !== filterConfig.createdAt.getFullYear()
+                        || photoPost.createdAt.getMonth() !== filterConfig.createdAt.getMonth()
+                        || photoPost.createdAt.getDate() !== filterConfig.createdAt.getDate()){
                         return false;
                     }
                 }
-                if(filterConfig.hashTags && filterConfig.hashTags[0]!=='' && photoPost.hashTags){
-                    if(!filterConfig.hashTags.every(function (t) {
-                            return photoPost.hashTags.includes(t);
+                if(filterConfig.hashTags && photoPost.hashTags){
+                    if(!filterConfig.hashTags.every(function (tag) {
+                            return photoPost.hashTags.includes(tag);
                         })){
                         return false;
                     }
                 }
-                if(filterConfig.hashTags && filterConfig.hashTags[0]!=='' && !photoPost.hashTags){
+                if(filterConfig.hashTags && !photoPost.hashTags){
                     return false;
                 }
                 return true;
@@ -284,17 +287,17 @@ var functional = (function () {
         var val = {
             id: function(){return typeof photoPost.id !== 'string'},
             description: function(){ return typeof photoPost.description !== 'string' || photoPost.description.length >= 200},
-            createdAt: function(){ return typeof photoPost.createdAt !== 'string'},
+            createdAt: function(){ return typeof photoPost.createdAt !== 'object'},
             author: function(){ return typeof photoPost.author !== 'string' || photoPost.author.length === 0},
             photoLink: function(){return typeof photoPost.photoLink !== 'string' || photoPost.photoLink.length === 0},
             hashTags:  function(){if(photoPost.hashTags !== undefined){
                 if(typeof photoPost.hashTags === 'string' ){
                     photoPost.hashTags = photoPost.hashTags.split(" ");
                 }
-                return photoPost.hashTags.some(function (t) {return typeof t !== 'string';});
+                return photoPost.hashTags.some(function (tag) {return typeof tag !== 'string';});
             }},
             likes: function(){if(photoPost.likes !== undefined ) {
-             return photoPost.likes.some(function (t)  {return typeof t !== 'string';});}}
+             return photoPost.likes.some(function (like)  {return typeof like !== 'string';});}}
         }
         for (var key in val){
             if(val[key]() === true){
@@ -319,7 +322,7 @@ var functional = (function () {
         if(typeof id !== 'string' ){
             return false;
         }
-        if(typeof  photoPost !== 'object'){
+        if(typeof  photoPost !== 'object') {
             return false;
         }
         var i = searchPhotoPost(id);
@@ -332,11 +335,11 @@ var functional = (function () {
             }
             if(photoPost.hashTags){
                 photoPosts[i].hashTags = [];
-                for(var j = 0;j < photoPost.hashTags.length;j++){
-                    if(typeof photoPost.hashTags[j] === 'string'){
-                        photoPosts[i].hashTags.push(photoPost.hashTags[j]);
-                    }
-                }
+                photoPost.hashTags.forEach(function(tag){
+                   if(typeof tag === 'string'){
+                       photoPosts[i].hashTags.push(tag);
+                   }
+                });
             }
             return true;
         }
@@ -585,7 +588,7 @@ var ModuleDOM = (function () {
 
         var time = document.createElement('div');
         time.setAttribute('class','time');
-        time.textContent = post.createdAt.toString().substring(0,10)+" "+post.createdAt.toString().substring(11,19);
+        time.textContent = post.createdAt.getDate() + " " + (post.createdAt.getMonth()+1) + " " + post.createdAt.toString().substring(10,21);
         photoPost.appendChild(time);
 
         var img = document.createElement('img');
@@ -862,7 +865,7 @@ var ModuleEvent = (function (){
         var post = {
             id: id.toString(),
             description: document.forms.addpost.description.value,
-            createdAt: JSON.parse(JSON.stringify(new Date())),
+            createdAt: new Date(),
             author: userName,
             photoLink: document.forms.addpost.photolink.value,
             likes:[],
@@ -922,10 +925,18 @@ function editPhotoPost(id, photoPost) {
 
 function addPhotoPosts(){
     posts = document.getElementById("posts");
-    var filterConfig ={
-        author: document.forms.search.author.value,
-        hashTags: document.forms.search.tags.value.split(' '),
-        createdAt: document.forms.search.time.value
+    if(document.forms.search.tags.value !== ''){
+        var filterConfig ={
+            author: document.forms.search.author.value,
+            hashTags: document.forms.search.tags.value.split(' '),
+            createdAt: document.forms.search.time.value
+        }
+    }
+    else{
+        var filterConfig ={
+            author: document.forms.search.author.value,
+            createdAt: document.forms.search.time.value
+        }
     }
     ModuleDOM.addPhotoPosts(functional.getPhotoPosts(posts.childNodes.length, 10,filterConfig));
 }
@@ -940,10 +951,18 @@ function addPhotoPost(photoPost) {
 
 function showPhotoPosts() {
     receivePostsOfLocalStorage();
-    var filterConfig ={
-        author: document.forms.search.author.value,
-        hashTags: document.forms.search.tags.value.split(' '),
-        createdAt: document.forms.search.time.value
+    if(document.forms.search.tags.value !== ''){
+        var filterConfig ={
+            author: document.forms.search.author.value,
+            hashTags: document.forms.search.tags.value.split(' '),
+            createdAt: document.forms.search.time.value
+        }
+    }
+    else{
+        var filterConfig ={
+            author: document.forms.search.author.value,
+            createdAt: document.forms.search.time.value
+        }
     }
     ModuleDOM.showPhotoPosts(functional.getPhotoPosts(0, 10, filterConfig));
 }
@@ -954,8 +973,14 @@ function showUserName() {
  }
 
 function sendPostsInLocalStorage(){
+    photoPosts.forEach(function(post){
+       post.createdAt = post.createdAt.getTime();
+    });
     localStorage.setItem('posts',JSON.stringify(photoPosts));
     localStorage.setItem('id',JSON.stringify(id));
+    photoPosts.forEach(function(post){
+        post.createdAt = new Date(post.createdAt);
+    });
 }
 
 function receivePostsOfLocalStorage(){
@@ -964,6 +989,9 @@ function receivePostsOfLocalStorage(){
         photoPosts = posts;
         id = JSON.parse(localStorage.getItem('id'));
     }
+    photoPosts.forEach(function(post){
+        post.createdAt = new Date(post.createdAt);
+    });
 }
 
 function sendUserNameinLocalStorage(){
