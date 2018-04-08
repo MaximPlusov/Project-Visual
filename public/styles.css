@@ -1,0 +1,166 @@
+
+.post {
+    margin-left: 30%;
+    margin-top: 10px;
+    width: 40%;
+    height: 100%;
+    background-color: beige;
+    border: solid 3px orange;
+}
+.text{
+    margin-left: 5%;
+    margin-right: 10%;
+    width: 90%;
+    float:left;
+    font-size: 15px;
+    padding-bottom: 20px;
+}
+
+.button{
+    margin-left: 50%;
+    width: 20%;
+}
+
+.input{
+    margin-right: 20px;
+}
+
+.label{
+    margin-left: 30%;
+    width: 40%;
+}
+
+.logo{
+    font-weight:bold;
+    float:left;
+    margin-left: 20px;
+    font-family: "Chiller","PT Sans", "Arial", serif;
+    font-size: 300%;
+    color: chocolate;
+
+}
+.name{
+    font-weight:bold;
+    margin-top: 1%;
+    float:left;
+    color: black;
+    width: 250px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.calendar{
+    margin-top: 18px;
+    margin-left: 10px;
+    float:left;
+    width:25px;
+}
+.searh-foto{
+    margin-top: 20px;
+    margin-left: 10%;
+    float:left;
+    width:20px;
+}
+.author{
+    font-weight:bold;
+    color: chocolate;
+    margin-top: 1%;
+    float:left;
+    margin-left: 5%;
+    text-align: left;
+}
+
+.username{
+    font-weight:bold;
+    color: chocolate;
+    margin-top: 15px;
+    float:right;
+    margin-right: 5%;
+    text-align: left;
+    font-size: 150%;
+}
+.delete{
+    margin-right: 4%;
+    float:right;
+    margin-top: 1%;
+    width: 3%;
+}
+
+.like{
+    margin-right: 1%;
+    float:right;
+    margin-top: 1%;
+    width: 4%;
+}
+.edit{
+    margin-right: 1%;
+    float:right;
+    margin-top: 1%;
+    width: 3%;
+}
+.num-like{
+    margin-right: 3%;
+    float:right;
+    margin-top: 1%;
+    width: 5%;
+}
+.img{
+    width:90%;
+    margin-left: 5%;
+}
+.add-foto{
+    margin-top: 20px;
+    margin-right: 0.5%;
+    float:right;
+    width:20px;
+}
+.search{
+    margin-top: 20px;
+    margin-left: 1%;
+    float: left;
+}
+
+.menu {
+    width:100%;
+    left: 0; top: 0;
+    background:burlywood;
+    margin:0 0 0;
+    border-radius:0 0 15px 15px;
+    position: fixed;
+}
+.tag{
+    margin-left: 5%;
+    text-align: center;
+    float:left;
+    background-color: orange;
+    width: 50px;
+    height: 20px;
+    font-weight:bold;
+    border-radius:15px 15px 15px 15px;
+    padding: 4px 4px 4px 4px;
+}
+footer {
+    position: fixed;
+    left: 0; bottom: 0;
+    padding: 10px;
+    background: burlywood;
+    color:white;
+    width: 100%;
+    text-align: center;
+}
+
+.time{
+    color:gainsboro;
+    margin-right: 5%;
+    float:right;
+    margin-top: 1%;
+}
+
+.add-posts{
+    margin-left: 49%;
+    width: 2%;
+}
+
+.add{
+    margin-left: 45%;
+}
