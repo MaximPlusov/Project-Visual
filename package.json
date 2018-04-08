@@ -1,0 +1,22 @@
+{
+  "name": "photoportal",
+  "version": "1.0.0",
+  "description": "PhotoPortal \"Visual\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaximPlusov/Project-Visual.git"
+  },
+  "author": "Maxim Plusov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaximPlusov/Project-Visual/issues"
+  },
+  "homepage": "https://github.com/MaximPlusov/Project-Visual#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
