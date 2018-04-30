@@ -12,7 +12,7 @@ app.use(express.static('public'));
 app.get('/', (req,res) => {
     res.sendFile("/public/index.html");
 }) 
-//Dima
+
 app.get('/read', (req, res) => {    
     res.end(fs.readFileSync('server/data/posts.json', 'utf8'));
 });
