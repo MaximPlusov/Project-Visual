@@ -2,7 +2,7 @@
 
 const express = require('express');
 const app = express();
- const fs = require('fs');
+const fs = require('fs');
 
 const parser = require('body-parser');
 app.use(parser.json());
@@ -12,6 +12,15 @@ app.use(express.static('public'));
 app.get('/', (req,res) => {
     res.sendFile("/public/index.html");
 }) 
+
+app.get('/read', (req, res) => {    
+    res.end(fs.readFileSync('server/data/posts.json', 'utf8'));
+});
+
+app.post('/write', (req, res) => {
+    fs.writeFileSync('server/data/posts.json', JSON.stringify (req.body));
+    res.end();
+});
 
 app.get('/getPhotoPost', (req, res)=>{
     var photoPosts = JSON.parse (fs.readFileSync('server/data/posts.json', 'utf8'));
@@ -49,19 +58,36 @@ app.delete('/removePhotoPost', (req, res)=>{
 
     let validatePhotoPost = function(photoPost){
     var val = {
-        id: function(){return typeof photoPost.id !== 'string'},
-        description: function(){ return typeof photoPost.description !== 'string' || photoPost.description.length >= 200},
-        createdAt: function(){ return typeof photoPost.createdAt !== 'object'},
-        author: function(){ return typeof photoPost.author !== 'string' || photoPost.author.length === 0},
-        photoLink: function(){return typeof photoPost.photoLink !== 'string' || photoPost.photoLink.length === 0},
-        hashTags:  function(){if(photoPost.hashTags !== undefined){
-            if(typeof photoPost.hashTags === 'string' ){
-                photoPost.hashTags = photoPost.hashTags.split(" ");
-            }
+        id: function(){
+            return typeof photoPost.id !== 'string'
+        },
+        description: function(){ 
+            return typeof photoPost.description !== 'string' || photoPost.description.length >= 200
+        },
+        createdAt: function(){
+             return typeof photoPost.createdAt !== 'object'
+        },
+        author: function(){ 
+            return typeof photoPost.author !== 'string' || photoPost.author.length === 0
+        },
+        photoLink: function(){
+            return typeof photoPost.photoLink !== 'string' || photoPost.photoLink.length === 0
+        },
+        hashTags:  function(){
+            if(photoPost.hashTags){
+                if(typeof photoPost.hashTags === 'string' ){
+                    photoPost.hashTags = photoPost.hashTags.split(" ");
+                }
             return photoPost.hashTags.some(function (tag) {return typeof tag !== 'string';});
-        }},
-        likes: function(){if(photoPost.likes !== undefined ) {
-         return photoPost.likes.some(function (like)  {return typeof like !== 'string';});}}
+            }
+        },
+        likes: function(){
+            if(photoPost.likes !== undefined ) {
+                return photoPost.likes.some(function (like)  {
+                    return typeof like !== 'string';
+                });
+            }
+        }
     }
     for (var key in val){
         if(val[key]() === true){
@@ -97,19 +123,19 @@ app.post('/getPhotoPosts', (req,res)=>{
             if(filterConfig.hashTags && photoPost.hashTags){
                 if(!filterConfig.hashTags.every(function (tag) {
                     return photoPost.hashTags.includes(tag);
-                        })){
-                     return false;
-                    }
-                }
-             if(filterConfig.hashTags && !photoPost.hashTags){
+                    })){
                 return false;
-             }
-            return true;
-             });
+                }
             }
+            if(filterConfig.hashTags && !photoPost.hashTags){
+                return false;
+            }
+            return true;
+            });
+        }
 
     filterPhotoPosts.sort(comparator);
-    filterPhotoPosts.slice(skip,top+skip);
+    filterPhotoPosts = filterPhotoPosts.slice(Number(skip),Number(top)+Number(skip));
     if(filterPhotoPosts){
         res.send(filterPhotoPosts);
     }
@@ -163,6 +189,7 @@ app.put('/editPhotoPost', (req,res)=>{
                 }
             });
         }
+        fs.writeFileSync('server/data/posts.json', JSON.stringify(photoPosts));
         res.send ("Пост изменён"); 
         res.status(200).end();
     }
