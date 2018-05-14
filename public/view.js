@@ -1,15 +1,15 @@
 var ModuleDOM = (function () {
-    function getAddButon(){
+    function getAddButon() {
         var add = document.createElement('img');
-        add.setAttribute('class','add-posts');
-        add.setAttribute('alt','plus.png');
-        add.setAttribute('src','plus.png');
-        add.setAttribute('id','add-posts');
-        add.addEventListener('click',ModuleEvent.eventAddPhotoPosts);
+        add.setAttribute('class', 'add-posts');
+        add.setAttribute('alt', 'plus.png');
+        add.setAttribute('src', 'plus.png');
+        add.setAttribute('id', 'add-posts');
+        add.addEventListener('click', ModuleEvent.eventAddPhotoPosts);
         return add;
     }
 
-    function removeLoginField(){
+    function removeLoginField() {
         var signIn = document.forms.signinfield;
         var length = signIn.childNodes.length;
         for (var i =  length - 1; i > -1; i--) {
@@ -18,7 +18,7 @@ var ModuleDOM = (function () {
         signIn.removeAttribute('class');
     }
 
-    function removeAddPost(){
+    function removeAddPost() {
         var addPost = document.forms.addpost;
         var length = addPost.childNodes.length;
         for (var i =  length - 1; i > -1; i--) {
@@ -27,7 +27,7 @@ var ModuleDOM = (function () {
         addPost.removeAttribute('class');
     }
 
-    function removeEditPost(){
+    function removeEditPost() {
         var editPost = document.forms.editpost;
         var length = editPost.childNodes.length;
         for (var i =  length - 1; i > -1; i--) {
@@ -36,36 +36,49 @@ var ModuleDOM = (function () {
         editPost.removeAttribute('class');
     }
 
+    let likePhotoPost= function(flag,id) {
+        var numlike = document.getElementById('numlike' + id.toString());
+        var imglike = document.getElementById('imglike' + id.toString());
+        if (flag === '1') {
+            imglike.setAttribute('src', 'like.png');
+            numlike.textContent = Number(numlike.textContent) +1;
+        }
+        else if(flag === '2') {
+            numlike.textContent = Number(numlike.textContent) - 1;
+            imglike.setAttribute('src', 'unlike.png');
+        }
+    };
+
     let addEditPost = function (post) {
         removeEditPost();
         var form = document.forms.editpost;
-        form.setAttribute('class','post');
+        form.setAttribute('class', 'post');
 
         var description = document.createElement('label');
-        description.setAttribute('class','label');
+        description.setAttribute('class', 'label');
         description.textContent = 'Description:';
         form.appendChild(description);
 
         form.appendChild(document.createElement('br'));
 
         var descriptionField = document.createElement('textarea');
-        descriptionField.setAttribute('name','description');
-        descriptionField.setAttribute('class','label');
+        descriptionField.setAttribute('name', 'description');
+        descriptionField.setAttribute('class', 'label');
         descriptionField.value = post.description;
         form.appendChild(descriptionField);
 
         form.appendChild(document.createElement('br'));
 
         var photoLink = document.createElement('label');
-        photoLink.setAttribute('class','label');
+        photoLink.setAttribute('class', 'label');
         photoLink.textContent = 'PhotoLink:';
         form.appendChild(photoLink);
 
         form.appendChild(document.createElement('br'));
 
         var photoLinkField = document.createElement('input');
-        photoLinkField.setAttribute('class','label');
-        photoLinkField.setAttribute('name','photolink');
+        photoLinkField.setAttribute('class', 'label');
+        photoLinkField.setAttribute('name', 'photolink');
         photoLinkField.value = post.photoLink;
         form.appendChild(photoLinkField);
 
@@ -73,27 +86,27 @@ var ModuleDOM = (function () {
 
         var tags = document.createElement('label');
         tags.textContent = 'HashTags:';
-        tags.setAttribute('class','label');
+        tags.setAttribute('class', 'label');
         form.appendChild(tags);
 
         form.appendChild(document.createElement('br'));
 
         var tagsField = document.createElement('input');
-        tagsField.setAttribute('name','tags');
+        tagsField.setAttribute('name', 'tags');
         tagsField.value = post.hashTags.join(' ');
-        tagsField.setAttribute('class','label');
+        tagsField.setAttribute('class', 'label');
         form.appendChild(tagsField);
 
         form.appendChild(document.createElement('br'));
 
         var button = document.createElement('button');
-        button.setAttribute('class','button');
-        button.setAttribute('edit-post-id',post.id);
+        button.setAttribute('class', 'button');
+        button.setAttribute('edit-post-id', post.id);
         button.textContent = 'Edit post';
-        button.addEventListener('click',ModuleEvent.eventEditPost);
+        button.addEventListener('click', ModuleEvent.eventEditPost);
 
         form.appendChild(button);
-    }
+    };
 
     let addAddPost = function () {
         removeAddPost();
@@ -151,9 +164,9 @@ var ModuleDOM = (function () {
         button.addEventListener('click',ModuleEvent.eventAddPost);
 
         form.appendChild(button);
-    }
+    };
 
-    let addLoginField = function (){
+    let addLoginField = function () {
         removeLoginField();
         var form = document.forms.signinfield;
         form.setAttribute('class','post');
@@ -166,7 +179,7 @@ var ModuleDOM = (function () {
 
         var loginField = document.createElement('input');
         loginField.setAttribute('class','label');
-        loginField.setAttribute('name','loginfield')
+        loginField.setAttribute('name','loginfield');
         form.appendChild(loginField);
 
         form.appendChild(document.createElement('br'));
@@ -191,7 +204,7 @@ var ModuleDOM = (function () {
         button.textContent ='Log in';
         button.addEventListener('click',ModuleEvent.eventLogin);
         form.appendChild(button);
-    }
+    };
 
     function getPhotoPost(post) {
 
@@ -206,29 +219,29 @@ var ModuleDOM = (function () {
 
         if(userName === post.author){
             var img = document.createElement('img');
-            img.setAttribute('class','delete');
-            img.setAttribute('alt','delete.png');
-            img.setAttribute('src','delete.png');
-            img.setAttribute('post-id',post.id)
-            img.addEventListener('click',ModuleEvent.eventRemovePhotoPost);
+            img.setAttribute('class', 'delete');
+            img.setAttribute('alt', 'delete.png');
+            img.setAttribute('src', 'delete.png');
+            img.setAttribute('post-id', post.id);
+            img.addEventListener('click', ModuleEvent.eventRemovePhotoPost);
             photoPost.appendChild(img);
 
             var edit = document.createElement('img');
-            edit.setAttribute('class','edit');
-            edit.setAttribute('alt','edit.png');
-            edit.setAttribute('edit-post-id',post.id);
-            edit.setAttribute('src','edit.png');
-            edit.addEventListener('click',ModuleEvent.eventNewEditPost)
+            edit.setAttribute('class', 'edit');
+            edit.setAttribute('alt', 'edit.png');
+            edit.setAttribute('edit-post-id', post.id);
+            edit.setAttribute('src', 'edit.png');
+            edit.addEventListener('click', ModuleEvent.eventNewEditPost);
             photoPost.appendChild(edit);
         }
 
         var time = document.createElement('div');
-        time.setAttribute('class','time');
+        time.setAttribute('class', 'time');
         time.textContent = post.createdAt.getDate() + " " + (post.createdAt.getMonth()+1) + " " + post.createdAt.toString().substring(10,21);
         photoPost.appendChild(time);
 
         var img = document.createElement('img');
-        img.setAttribute('class','img');
+        img.setAttribute('class', 'img');
         img.setAttribute('src', post.photoLink);
         img.setAttribute('alt', 'foto.png');
         photoPost.appendChild(img);
@@ -246,15 +259,15 @@ var ModuleDOM = (function () {
         if(post.hashTags){
             for(var i = 0;i<post.hashTags.length;i++){
                 var tag = document.createElement('div');
-                tag.setAttribute('class','tag');
+                tag.setAttribute('class', 'tag');
                 tag.textContent = post.hashTags[i];
                 photoPost.appendChild(tag);
             }
         }
 
         var numLike = document.createElement('div');
-        numLike.setAttribute('class','num-like');
-        numLike.setAttribute('id','numlike' + post.id.toString());
+        numLike.setAttribute('class', 'num-like');
+        numLike.setAttribute('id', 'numlike' + post.id.toString());
         if(post.likes){
             numLike.textContent = post.likes.length;
         }
@@ -264,8 +277,9 @@ var ModuleDOM = (function () {
         photoPost.appendChild(numLike);
 
         var like = document.createElement('img');
-        like.setAttribute('id-like',post.id);
-        like.setAttribute('class','like');
+        like.setAttribute('id-like', post.id);
+        like.setAttribute('id', 'imglike' + post.id.toString());
+        like.setAttribute('class', 'like');
         if(post.likes && post.likes.includes(userName)){
             like.setAttribute('src', 'like.png');
         }
@@ -282,7 +296,7 @@ var ModuleDOM = (function () {
         return photoPost;
     }
 
-    let removePhotoPosts = function (){
+    let removePhotoPosts = function () {
         var posts = document.getElementById('posts');
         var length = posts.childNodes.length;
         for (var i =  length - 1; i > -1; i--) {
@@ -292,7 +306,7 @@ var ModuleDOM = (function () {
         if(document.getElementById('add-posts') !== null){
             addButton.removeChild(document.getElementById('add-posts'));
         }
-    }
+    };
 
     let showPhotoPosts = function (showPosts) {
         removePhotoPosts();
@@ -305,11 +319,11 @@ var ModuleDOM = (function () {
         showPosts.forEach(function (post) {
             posts.appendChild(getPhotoPost(post));
         });
-        if(photoPosts.length === posts.childElementCount || showPosts.length<10){
+        if(showPosts.length<10) {
             var div = document.createElement('div');
             div.textContent = 'Ops! Posts have ended!';
-            div.setAttribute('class','add');
-            div.setAttribute('id','add-posts');
+            div.setAttribute('class', 'add');
+            div.setAttribute('id', 'add-posts');
             addButton.appendChild(div);
         }
         else{
@@ -322,11 +336,11 @@ var ModuleDOM = (function () {
         addPosts.forEach(function (post) {
             posts.appendChild(getPhotoPost(post));
         });
-        if(photoPosts.length === posts.childElementCount || addPosts.length<10){
+        if(addPosts.length<10) {
             var div = document.createElement('div');
             div.textContent = 'Ops! Posts have ended!';
-            div.setAttribute('class','add');
-            div.setAttribute('id','add-posts');
+            div.setAttribute('class', 'add');
+            div.setAttribute('id', 'add-posts');
             document.getElementsByClassName('add-button')[0].replaceChild(div,document.getElementById('add-posts'));
         }
     };
@@ -351,45 +365,45 @@ var ModuleDOM = (function () {
         posts.replaceChild(getPhotoPost(photoPost),editPost);
     };
 
-    let showUserName = function (){
+    let showUserName = function () {
         var person = document.getElementsByClassName('person')[0];
         var logo = document.getElementsByClassName('logo')[0];
-        logo.addEventListener('click',ModuleEvent.eventMainPage);
-        document.forms.search.img.addEventListener('click',ModuleEvent.eventSearchPosts);
+        logo.addEventListener('click', ModuleEvent.eventMainPage);
+        document.forms.search.img.addEventListener('click', ModuleEvent.eventSearchPosts);
         var length = person.childNodes.length;
         for (var i =  length - 1; i > -1; i--) {
             person.removeChild(person.childNodes[i]);
         }
         var user = document.createElement('div');
-        user.setAttribute('id','username');
-        user.setAttribute('class','username');
+        user.setAttribute('id', 'username');
+        user.setAttribute('class', 'username');
         person.appendChild(user);
         if (userName !== null){
             user.textContent = userName;
             var addPhotoPost = document.createElement('img');
-            addPhotoPost.setAttribute('class','add-foto');
-            addPhotoPost.setAttribute('alt','plus.png');
-            addPhotoPost.setAttribute('src','plus.png');
-            addPhotoPost.addEventListener('click',ModuleEvent.eventNewPost);
+            addPhotoPost.setAttribute('class', 'add-foto');
+            addPhotoPost.setAttribute('alt', 'plus.png');
+            addPhotoPost.setAttribute('src', 'plus.png');
+            addPhotoPost.addEventListener('click', ModuleEvent.eventNewPost);
             person.appendChild(addPhotoPost);
 
             var exit = document.createElement('img');
-            exit.setAttribute('class','add-foto');
-            exit.setAttribute('alt','exit.png');
-            exit.setAttribute('src','exit.png');
-            exit.addEventListener('click',ModuleEvent.eventExit);
+            exit.setAttribute('class', 'add-foto');
+            exit.setAttribute('alt', 'exit.png');
+            exit.setAttribute('src', 'exit.png');
+            exit.addEventListener('click', ModuleEvent.eventExit);
             person.appendChild(exit);
         }
         else{
             user.textContent = 'Sign in';
-            user.addEventListener('click',ModuleEvent.eventSignIn);
+            user.addEventListener('click', ModuleEvent.eventSignIn);
         }
     };
 
-    let showPhotoPost = function(photoPost){
+    let showPhotoPost = function(photoPost) {
         var posts = document.getElementById('posts');
-        posts.insertBefore(getPhotoPost(photoPost),posts.firstElementChild);
-    }
+        posts.insertBefore(getPhotoPost(photoPost), posts.firstElementChild);
+    };
 
     return {
         showPhotoPosts,
@@ -401,6 +415,7 @@ var ModuleDOM = (function () {
         removePhotoPosts,
         addLoginField,
         addAddPost,
-        addEditPost
+        addEditPost,
+        likePhotoPost
     };
 })();
