@@ -1,4 +1,4 @@
-﻿const express = require('express');
+const express = require('express');
 
 const app = express();
 const fs = require('fs');
@@ -15,30 +15,36 @@ app.get('/', (req, res) => {
 
 app.get('/getPhotoPost', (req, res) => {
     const photoPosts = JSON.parse(fs.readFileSync('server/data/posts.json', 'utf8'));
-    const post = photoPosts.find((p)=> {
-        return req.query.id === p.id;
-    });
+    const post = photoPosts.find(p => req.query.id === p.id);
     if (post) {
         post.createdAt = new Date(post.createdAt);
         res.status(200).send(post).end();
-    }
-    else{
+    } else {
         res.status(404).send('Пост не найден').end();
     }
 });
 
+app.get('/getId', (req, res) => {
+   const photoPosts = JSON.parse(fs.readFileSync('server/data/posts.json', 'utf8'));
+   let id = 1;
+   photoPosts.forEach((post) => {
+      if (Number(post.id) > id) {
+          id = Number(post.id);
+      }
+   });
+   id++;
+   res.status(200).send(id.toString()).end();
+});
+
 app.delete('/removePhotoPost', (req, res) => {
-    const photoPosts = JSON.parse(fs.readFileSync('server/data/posts.json','utf8'));
-    const post = photoPosts.find((p)=> {
-        return req.query.id === p.id;
-    });
+    const photoPosts = JSON.parse(fs.readFileSync('server/data/posts.json', 'utf8'));
+    const post = photoPosts.find(p => req.query.id === p.id);
     if (post) {
         photoPosts.splice(photoPosts.indexOf(post), 1);
         fs.writeFileSync('server/data/posts.json', JSON.stringify(photoPosts));
         post.createdAt = new Date(post.createdAt);
         res.send(post).end();
-    }
-    else {
+    } else {
         res.status(404).send('Пост не найден').end();
     }
 });
@@ -47,42 +53,38 @@ function comparator(a, b) {
     return b.createdAt - a.createdAt;
 }
 
-let validatePhotoPost = function (photoPost){
-    let val = {
-        id: function () {
+const validatePhotoPost = function (photoPost) {
+    const val = {
+        id() {
             return typeof photoPost.id !== 'string';
         },
-        description: function () {
+        description() {
             return typeof photoPost.description !== 'string' || photoPost.description.length >= 200;
         },
-        createdAt: function () {
+        createdAt() {
             return typeof photoPost.createdAt !== 'object';
         },
-        author: function () {
+        author() {
             return typeof photoPost.author !== 'string' || photoPost.author.length === 0;
         },
-        photoLink: function () {
+        photoLink() {
             return typeof photoPost.photoLink !== 'string' || photoPost.photoLink.length === 0;
         },
-        hashTags: function () {
+        hashTags() {
             if (photoPost.hashTags) {
-                if (typeof photoPost.hashTags === 'string' ) {
+                if (typeof photoPost.hashTags === 'string') {
                     photoPost.hashTags = photoPost.hashTags.split(' ');
                 }
-                return photoPost.hashTags.some( (tag) => {
-                    return typeof tag !== 'string';
-                });
+                return photoPost.hashTags.some(tag => typeof tag !== 'string');
             }
         },
-        likes: function() {
-            if (photoPost.likes !== undefined ) {
-                return photoPost.likes.some(function (like) {
-                    return typeof like !== 'string';
-                });
+        likes() {
+            if (photoPost.likes !== undefined) {
+                return photoPost.likes.some(like => typeof like !== 'string');
             }
-        }
+        },
     };
-    for (let key in val) {
+    for (const key in val) {
         if (val[key]() === true) {
             return key;
         }
@@ -96,12 +98,12 @@ app.post('/getPhotoPosts', (req, res) => {
     const filterConfig = req.body;
     const skip = req.query.skip || 0;
     const top = req.query.top || 10;
-    photoPosts.forEach ((post) => {
+    photoPosts.forEach((post) => {
         post.createdAt = new Date(post.createdAt);
     });
     let filterPhotoPosts = photoPosts;
-    if (filterConfig ) {
-        filterPhotoPosts = photoPosts.filter(function (photoPost) {
+    if (filterConfig) {
+        filterPhotoPosts = photoPosts.filter((photoPost) => {
             if (filterConfig.author) {
                 if (photoPost.author.indexOf(filterConfig.author) === -1) {
                     return false;
@@ -116,9 +118,7 @@ app.post('/getPhotoPosts', (req, res) => {
                 }
             }
             if (filterConfig.hashTags && photoPost.hashTags) {
-                if (!filterConfig.hashTags.every((tag) => {
-                    return photoPost.hashTags.includes(tag);
-                })) {
+                if (!filterConfig.hashTags.every(tag => photoPost.hashTags.includes(tag))) {
                     return false;
                 }
             }
@@ -130,11 +130,10 @@ app.post('/getPhotoPosts', (req, res) => {
     }
 
     filterPhotoPosts.sort(comparator);
-    filterPhotoPosts = filterPhotoPosts.slice(Number(skip), Number(top)+Number(skip));
+    filterPhotoPosts = filterPhotoPosts.slice(Number(skip), Number(top) + Number(skip));
     if (filterPhotoPosts) {
         res.send(filterPhotoPosts);
-    }
-    else {
+    } else {
         res.status(404).send('Посты не найдены').end();
     }
 });
@@ -148,33 +147,25 @@ app.post('/addPhotoPost', (req, res) => {
         photoPosts.push(post);
         fs.writeFileSync('server/data/posts.json', JSON.stringify(photoPosts));
         res.status(200).send('Пост добавлен').end();
-    }
-    else {
+    } else {
         res.status(404).send('Пост не добавлен').end();
     }
 });
 
 app.put('/likePhotoPost', (req, res) => {
-    const photoPosts = JSON.parse(fs.readFileSync('server/data/posts.json','utf8'));
-    const post = photoPosts.find((p)=> {
-        return req.query.id === p.id;
-    });
+    const photoPosts = JSON.parse(fs.readFileSync('server/data/posts.json', 'utf8'));
+    const post = photoPosts.find(p => req.query.id === p.id);
     if (!post) {
         res.status(404).send('Пост не найден').end();
-    }
-    else if (post.author === req.query.user || req.query.user === null) {
+    } else if (post.author === req.query.user || req.query.user === null) {
         res.status(200).send('0').end();
-    }
-    else {
-        const i = post.likes.findIndex((like) => {
-            return like === req.query.user;
-        });
+    } else {
+        const i = post.likes.findIndex(like => like === req.query.user);
         if (i !== -1) {
             post.likes.splice(i);
             fs.writeFileSync('server/data/posts.json', JSON.stringify(photoPosts));
             res.status(200).send('2');
-        }
-        else {
+        } else {
             post.likes.push(req.query.user);
             fs.writeFileSync('server/data/posts.json', JSON.stringify(photoPosts));
             res.status(200).send('1');
@@ -184,16 +175,13 @@ app.put('/likePhotoPost', (req, res) => {
 app.put('/editPhotoPost', (req, res) => {
     const photoPosts = JSON.parse(fs.readFileSync('server/data/posts.json', 'utf8'));
 
-    const oldPost = photoPosts.find((post) => {
-        req.query.id === post.id;
-    });
+    const oldPost = photoPosts.find(post => req.query.id === post.id);
 
     const post = req.body;
 
     if (!oldPost) {
         res.status(404).send('Пост не найден').end();
-    }
-    else {
+    } else {
         if (post.description && typeof post.description === 'string' && post.description.length < 200) {
             oldPost.description = post.description;
         }
@@ -216,3 +204,4 @@ app.put('/editPhotoPost', (req, res) => {
 app.listen(3000, () => {
     console.log('Сервер запущен');
 });
+// C:/UP/node_modules/.bin/eslint C:/UP/app.js
