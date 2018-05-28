@@ -142,7 +142,7 @@ function editPhotoPost(id, photoPost) {
 function addPhotoPostsPromise(filterConfig) {
     return new Promise(((resolve, reject) => {
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', `/getPhotoPosts/?skip=${posts.childNodes.length}&top=${10}`, true);
+        xhr.open('POST', '/getPhotoPosts/?skip='+ posts.childNodes.length + '&top=' + '10', true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify(filterConfig));
         xhr.onload = () => {
@@ -244,6 +244,37 @@ function showPhotoPosts() {
     return false;
 }
 
+function loginPromise(name, password) {
+    return new Promise(((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/login', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                resolve(xhr.response);
+            }
+            else{
+                alert("Неверное имя пользователя или пароль");
+                ModuleDOM.addLoginField();
+            }
+        };
+        let user = JSON.stringify({"username":name,"password":password});
+        xhr.send(user);
+    }));
+}
+
+function login(name, password){
+    loginPromise(name, password)
+        .then((response) => {
+            userName = name;
+            sendUserNameinLocalStorage();
+            eventMainPage();
+    });
+
+}
+
+
+
 function showUserName() {
     receiveUserNameofLocalStorage();
     ModuleDOM.showUserName();
@@ -259,6 +290,8 @@ function receiveUserNameofLocalStorage() {
         userName = user;
     }
 }
+
+
 
 showUserName();
 showPhotoPosts();
