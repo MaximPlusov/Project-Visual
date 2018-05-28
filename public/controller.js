@@ -29,27 +29,8 @@ const ModuleEvent = (function () {
 
     const eventLogin = function () {
         const name = document.forms.signinfield.loginfield.value;
-        const i = users.findIndex((user, i, users) => user.name === name);
-        let div;
-        if (i !== -1) {
-            if (users[i].password === document.forms.signinfield.passwordfield.value) {
-                userName = name;
-                sendUserNameinLocalStorage();
-                eventMainPage();
-            } else {
-                ModuleDOM.addLoginField();
-                div = document.createElement('div');
-                div.textContent = 'Error! Incorrect password!';
-                div.setAttribute('class', 'label');
-                document.forms.signinfield.appendChild(div);
-            }
-        } else {
-            ModuleDOM.addLoginField();
-            div = document.createElement('div');
-            div.setAttribute('class', 'label');
-            div.textContent = 'Error! Such user does not exist!';
-            document.forms.signinfield.appendChild(div);
-        }
+        const password = document.forms.signinfield.passwordfield.value;
+        login(name,password);
     };
 
     const eventSearchPosts = function () {
